@@ -134,9 +134,6 @@ angular
                 });
         };
         self.updatePomCount();
-        // self.prefs = preferencesService.userPrefs;
-        // self.timerLength = self.prefs.pomLength;
-        // self.secondsRemaining = self.prefs.pomLength * 60;
         preferencesService.getPrefs()
             .then(function(response){
                 self.prefs = response.data.preferences;
@@ -145,6 +142,5 @@ angular
                 self.updateDisplay();
             });
         self.timerInProgress = false;
-
-
+        
     }]);
