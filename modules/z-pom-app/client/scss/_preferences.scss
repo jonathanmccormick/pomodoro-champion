@@ -1,0 +1,12 @@
+.preferences-container input[type=text] {
+    border: none;
+    border-bottom: 1px solid transparent;
+    font-weight: bold;
+    width: 30px;
+    text-align: center;
+}
+
+.preferences-container input[type=text]:focus {
+    outline: none;
+    border-bottom: 1px dotted;
+}

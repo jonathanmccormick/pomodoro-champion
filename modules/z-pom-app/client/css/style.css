@@ -1,0 +1,96 @@
+body {
+  padding-top: 50px;
+  font-weight: 200; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
+  letter-spacing: 4px; }
+
+.timer-container {
+  padding: 40px 15px;
+  text-align: center; }
+  .timer-container .timer {
+    font-size: 80px;
+    line-height: 60px;
+    margin: 10px 0;
+    font-weight: 100; }
+  .timer-container .timer-pom {
+    color: red; }
+  .timer-container .timer-break, .timer-container .timer-longBreak {
+    color: green; }
+  .timer-container .timer-buttons {
+    margin: 10px 0; }
+
+/* Circles for counting poms */
+.circle-container {
+  margin: 10px 0; }
+
+.circle {
+  background-color: red;
+  width: 12px;
+  height: 2px;
+  /*border-radius: 50%;*/
+  display: inline-block;
+  margin-right: 4px; }
+
+#deletePom {
+  display: none; }
+
+.circle-container .ui-effects-wrapper {
+  display: inline; }
+
+/* Reports styles */
+.chart {
+  margin-bottom: 80px; }
+
+.graph {
+  padding: 20px 20px 0 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  background: repeating-linear-gradient(to top, #ddd, #ddd 1px, #fff 1px, #fff 20px); }
+
+.graph .day {
+  width: 14.285%;
+  text-align: center;
+  background: red;
+  color: white;
+  margin: 0 10px;
+  max-width: 100px; }
+
+/* Styling for dates underneath chart */
+.dates {
+  padding: 10px 20px 0 20px;
+  display: flex;
+  justify-content: space-around; }
+
+.chart .date {
+  width: 14.285%;
+  text-align: center;
+  margin: 0 10px;
+  max-width: 100px; }
+
+.date .day, .date .mon-day {
+  display: block; }
+
+.date .day:after {
+  content: ','; }
+
+.total-in-report {
+  font-size: 12px;
+  color: #AFAFAF;
+  font-weight: 400;
+  margin-left: 10px; }
+
+.preferences-container input[type=text] {
+  border: none;
+  border-bottom: 1px solid transparent;
+  font-weight: bold;
+  width: 30px;
+  text-align: center; }
+
+.preferences-container input[type=text]:focus {
+  outline: none;
+  border-bottom: 1px dotted; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,15 @@
+<section>
+    <h1>Preferences</h1>
+
+    <div class="preferences-container">
+        <p>Pomodoro length: <input type="text" ng-model="prefServ.userPrefs.pomLength" ng-change="prefServ.savePrefs(key, value)"> minutes</p>
+        <p>Break length: <input type="text" ng-model="prefServ.userPrefs.breakLength" ng-change="prefServ.savePrefs(key, value)"> minutes</p>
+        <p>Long break length: <input type="text" ng-model="prefServ.userPrefs.longBreakLength" ng-change="prefServ.savePrefs(key, value)"> minutes</p>
+        <p>Number of poms before long break: <input type="text" ng-model="prefServ.userPrefs.pomsBeforeLongBreak" ng-change="prefServ.savePrefs(key, value)"></p>
+        <p>Notify when pom ends: <input type="checkbox" ng-model="prefServ.userPrefs.notifyWhenPomEnds" ng-change="prefServ.savePrefs(key, value)"></p>
+        <p>Automatically start next pom: <input type="checkbox" ng-model="prefServ.userPrefs.automaticallyStartNextPom" ng-change="prefServ.savePrefs(key, value)"></p>
+    </div>
+
+    <!--Post preferences array and overwrite the old one when saved (is that safe?).-->
+
+</section>

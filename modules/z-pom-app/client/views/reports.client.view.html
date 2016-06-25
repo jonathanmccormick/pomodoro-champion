@@ -1,0 +1,26 @@
+<section>
+    <h1>Reports</h1>
+
+    <div class="btn-group" role="group" aria-label="...">
+      <button class="btn btn-default" ng-repeat="range in reportRanges" ng-click="$parent.rangeChanged(range)">{{ range }}</button>
+    </div>
+
+      <h2>{{ reportRange }}<span class="total-in-report">{{ calcTotalInReport() }}</span></h2>
+      <div class="chart">
+
+          <div class="graph">
+              <div class="day" style="height: {{ calcBarHeight(day.pomLogs.pomsCompleted) }}px" ng-repeat="day in report">
+                  <span>{{ day.pomLogs.pomsCompleted }}</span>
+              </div>
+          </div>
+
+          <div class="dates">
+              <div class="date" ng-repeat="day in report">
+                  <span class="day">{{ day.pomLogs.date | date : 'EEEE'}}</span>
+                  <span class="mon-date">{{ day.pomLogs.date | date : 'MMMM d'}}</span>
+              </div>
+          </div>
+
+      </div>
+
+</section>

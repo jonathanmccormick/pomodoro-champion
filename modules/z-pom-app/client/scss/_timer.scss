@@ -1,0 +1,42 @@
+.timer-container {
+  padding: 40px 15px;
+  text-align: center;
+  .timer {
+    font-size: 80px;
+    line-height: 60px;
+    margin: 10px 0;
+    font-weight: 100;
+  }
+  .timer-pom {
+    color: red;
+  }
+  .timer-break, .timer-longBreak {
+    color: green;
+  }
+  .timer-buttons {
+    margin: 10px 0;
+  }
+}
+
+/* Circles for counting poms */
+
+.circle-container {
+  margin: 10px 0;
+}
+
+.circle {
+  background-color: red;
+  width: 12px;
+  height: 2px;
+  /*border-radius: 50%;*/
+  display: inline-block;
+  margin-right: 4px;
+}
+
+#deletePom {
+  display: none;
+}
+
+.circle-container .ui-effects-wrapper {
+  display: inline;
+}
