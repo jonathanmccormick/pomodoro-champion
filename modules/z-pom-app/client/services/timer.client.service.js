@@ -140,7 +140,6 @@ angular
         preferencesService.getPrefs()
             .then(function(response){
                 self.prefs = response.data.preferences;
-                console.log(self.prefs);
                 self.timerLength = self.prefs.pomLength;
                 self.secondsRemaining = self.prefs.pomLength * 60;
                 self.updateDisplay();
