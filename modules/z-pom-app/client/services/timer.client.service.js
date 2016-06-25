@@ -122,7 +122,7 @@ angular
 
         self.notify = function() {
             if(self.prefs.notifyWhenPomEnds) {
-                // $.playSound('public/assets/audio/Glass');
+                new Audio('/media/Affirmative.mp3').play();
             }
         };
 
