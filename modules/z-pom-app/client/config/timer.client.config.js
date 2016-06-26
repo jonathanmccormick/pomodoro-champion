@@ -12,17 +12,17 @@
     Menus.addMenuItem('topbar', {
       title: 'Timer',
       state: 'timer',
-      roles: ['*']
+      roles: ['user']
     });
     Menus.addMenuItem('topbar', {
       title: 'Preferences',
       state: 'preferences',
-      roles: ['*']
+      roles: ['user']
     });
     Menus.addMenuItem('topbar', {
       title: 'Reports',
       state: 'reports',
-      roles: ['*']
+      roles: ['user']
     });
   }
 })();
