@@ -1,3 +1,20 @@
+.home-content img {
+  width: 80%;
+  display: block;
+  margin: 0 auto; }
+.home-content .btn {
+  display: block;
+  margin: 100px auto;
+  width: 250px;
+  font-weight: bold; }
+
+.home-title {
+  text-align: center;
+  margin: 100px; }
+  .home-title h1 {
+    font-weight: bold;
+    font-size: 60px; }
+
 body {
   padding-top: 50px;
   font-weight: 200; }
