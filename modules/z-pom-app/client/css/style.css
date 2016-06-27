@@ -72,7 +72,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  background: repeating-linear-gradient(to top, #ddd, #ddd 1px, #fff 1px, #fff 20px); }
+  background: repeating-linear-gradient(to top, #ddd, #ddd 1px, #fff 1px, #fff 20px);
+  border-top: solid 1px #ddd; }
   .graph .day {
     width: 14.285%;
     text-align: center;

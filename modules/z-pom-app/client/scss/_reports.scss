@@ -20,6 +20,7 @@
     justify-content: space-around;
     align-items: flex-end;
     background: repeating-linear-gradient(to top, #ddd, #ddd 1px, #fff 1px, #fff 20px);
+    border-top: solid 1px #ddd;
     .day {
         width: 14.285%;
         text-align: center;
