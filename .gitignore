@@ -38,6 +38,7 @@ _site/
 *.tmp
 *.bak
 *.swp
+*.map
 logs/
 build/
 
