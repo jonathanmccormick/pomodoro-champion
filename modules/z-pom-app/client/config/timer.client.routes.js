@@ -28,6 +28,12 @@
         templateUrl: 'modules/z-pom-app/client/views/reports.client.view.html',
         controller: 'ReportsController',
         controllerAs: 'vm'
+      })
+      .state('import', {
+        url: '/import',
+        templateUrl: 'modules/z-pom-app/client/views/import.client.view.html',
+        controller: 'ImportController',
+        controllerAs: 'vm'
       });
   }
 })();
