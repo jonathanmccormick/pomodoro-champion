@@ -64,8 +64,8 @@ angular
                     self.updateDisplay();
                 } else {
                     self.timerInProgress = false;
+                    self.notify();
                     if(self.interface.currentTimer === 'pom') {
-                        self.notify();
 
                         // Add a pom to the DB
                         dataService.addPom();
@@ -142,5 +142,5 @@ angular
                 self.updateDisplay();
             });
         self.timerInProgress = false;
-        
+
     }]);
