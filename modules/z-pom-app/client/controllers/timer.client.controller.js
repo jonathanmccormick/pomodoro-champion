@@ -5,16 +5,16 @@
     .module('z-pom-app')
     .controller('TimerController', TimerController);
 
-    TimerController.$inject = ['$scope', 'timerService'];
+    TimerController.$inject = ['$scope', 'timerService', 'dataService'];
 
-    function TimerController($scope, timerService) {
+    function TimerController($scope, timerService, dataService) {
 
         $scope.interface = timerService.interface;
         $scope.interface.newController();
 
         $scope.deletePom = function(){
             if (confirm('Are you sure you want to delete a pom?')) {
-                pomDataService.deletePom()
+                dataService.deletePom()
                 .then(function(response) {
                     timerService.interface.pomsToday = response.data;
                 });
