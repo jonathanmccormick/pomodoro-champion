@@ -1,8 +1,8 @@
 'use strict';
 
-var mongoose = require('mongoose'),
-    User = mongoose.model('User'),
-    moment = require('moment');
+var mongoose = require('mongoose');
+var User = mongoose.model('User');
+// var moment = require('moment');
 
 module.exports = function(app) {
 

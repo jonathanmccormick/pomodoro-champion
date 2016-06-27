@@ -18,25 +18,27 @@
 
       // Calculate query start and end dates based on selected report range
       $scope.calcDates = function(range) {
+          // Define vars for the switch statement
+          var startOfWeek, endOfWeek;
           switch (range) {
               case 'This Week':
-                  var startOfWeek = moment().startOf('week').format('YYYY-MM-DD');
-                  var endOfWeek = moment().endOf('week').format('YYYY-MM-DD');
+                  startOfWeek = moment().startOf('week').format('YYYY-MM-DD');
+                  endOfWeek = moment().endOf('week').format('YYYY-MM-DD');
                   return [startOfWeek, endOfWeek];
               case 'Last Week':
-                  var startOfWeek = moment().subtract(1, 'weeks').startOf('week').format('YYYY-MM-DD');
-                  var endOfWeek = moment().subtract(1, 'weeks').endOf('week').format('YYYY-MM-DD');
+                  startOfWeek = moment().subtract(1, 'weeks').startOf('week').format('YYYY-MM-DD');
+                  endOfWeek = moment().subtract(1, 'weeks').endOf('week').format('YYYY-MM-DD');
                   return [startOfWeek, endOfWeek];
               case 'This Month':
-                  var startOfWeek = moment().startOf('month').format('YYYY-MM-DD');
-                  var endOfWeek = moment().endOf('month').format('YYYY-MM-DD');
+                  startOfWeek = moment().startOf('month').format('YYYY-MM-DD');
+                  endOfWeek = moment().endOf('month').format('YYYY-MM-DD');
                   return [startOfWeek, endOfWeek];
               case 'Last Month':
-                  var startOfWeek = moment().subtract(1, 'months').startOf('month').format('YYYY-MM-DD');
-                  var endOfWeek = moment().subtract(1, 'months').endOf('month').format('YYYY-MM-DD');
+                  startOfWeek = moment().subtract(1, 'months').startOf('month').format('YYYY-MM-DD');
+                  endOfWeek = moment().subtract(1, 'months').endOf('month').format('YYYY-MM-DD');
                   return [startOfWeek, endOfWeek];
           }
-      }
+      };
 
       $scope.rangeChanged = function(range) {
           var dates = $scope.calcDates(range); // Get dates from the range that was provided
@@ -47,7 +49,7 @@
                   $scope.sortReport($scope.report);
                   $scope.reportRange = range; // update the range display
               });
-      }
+      };
 
       // Sort days in report by date
       $scope.sortReport = function(data) {
@@ -60,7 +62,7 @@
                   return 0;
           }
           data.sort(compare);
-      }
+      };
 
       $scope.calcTotalInReport = function() {
           if ($scope.report) {
@@ -70,7 +72,7 @@
               }
               return total;
           }
-      }
+      };
 
       $scope.calcBarHeight = function(numOfPoms) {
           return numOfPoms * 20 + 20;

@@ -3,7 +3,7 @@
 // Module dependencies.
 var mongoose  = require('mongoose');
 var User = mongoose.model('User');
-var moment = require('moment');
+// var moment = require('moment');
 
 // Add PomLogs data schema to user
 User.schema.add({
