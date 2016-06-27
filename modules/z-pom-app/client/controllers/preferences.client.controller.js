@@ -9,10 +9,10 @@
 
   function PreferencesController($scope, preferencesService) {
 
-      preferencesService.getPrefs()
-        .then(function(response) {
-            $scope.prefServ = preferencesService;
-        });
+    preferencesService.getPrefs()
+      .then(function(response) {
+        $scope.prefServ = preferencesService;
+      });
 
   }
 })();
