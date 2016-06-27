@@ -41,6 +41,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Circles for counting poms */
 .circle-container {
   margin: 10px 0; }
+  .circle-container .ui-effects-wrapper {
+    display: inline; }
 
 .circle {
   background-color: red;
@@ -53,12 +55,17 @@ h1, h2, h3, h4, h5, h6 {
 #deletePom {
   display: none; }
 
-.circle-container .ui-effects-wrapper {
-  display: inline; }
-
-/* Reports styles */
 .chart {
   margin-bottom: 80px; }
+  .chart .date {
+    width: 14.285%;
+    text-align: center;
+    margin: 0 10px;
+    max-width: 100px; }
+    .chart .date .day, .chart .date .mon-day {
+      display: block; }
+    .chart .date .day:after {
+      content: ','; }
 
 .graph {
   padding: 20px 20px 0 20px;
@@ -66,32 +73,19 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-around;
   align-items: flex-end;
   background: repeating-linear-gradient(to top, #ddd, #ddd 1px, #fff 1px, #fff 20px); }
-
-.graph .day {
-  width: 14.285%;
-  text-align: center;
-  background: red;
-  color: white;
-  margin: 0 10px;
-  max-width: 100px; }
+  .graph .day {
+    width: 14.285%;
+    text-align: center;
+    background: red;
+    color: white;
+    margin: 0 10px;
+    max-width: 100px; }
 
 /* Styling for dates underneath chart */
 .dates {
   padding: 10px 20px 0 20px;
   display: flex;
   justify-content: space-around; }
-
-.chart .date {
-  width: 14.285%;
-  text-align: center;
-  margin: 0 10px;
-  max-width: 100px; }
-
-.date .day, .date .mon-day {
-  display: block; }
-
-.date .day:after {
-  content: ','; }
 
 .total-in-report {
   font-size: 12px;
@@ -105,7 +99,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   width: 30px;
   text-align: center; }
-
 .preferences-container input[type=text]:focus {
   outline: none;
   border-bottom: 1px dotted; }

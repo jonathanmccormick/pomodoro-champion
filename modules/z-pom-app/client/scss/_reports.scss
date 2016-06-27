@@ -1,6 +1,17 @@
-/* Reports styles */
 .chart {
     margin-bottom: 80px;
+    .date {
+        width: 14.285%;
+        text-align: center;
+        margin: 0 10px;
+        max-width: 100px;
+        .day, .mon-day {
+            display: block;
+        }
+        .day:after {
+            content: ',';
+        }
+    }
 }
 
 .graph {
@@ -9,38 +20,21 @@
     justify-content: space-around;
     align-items: flex-end;
     background: repeating-linear-gradient(to top, #ddd, #ddd 1px, #fff 1px, #fff 20px);
+    .day {
+        width: 14.285%;
+        text-align: center;
+        background: red;
+        color: white;
+        margin: 0 10px;
+        max-width: 100px;
+    }
 }
-
-.graph .day {
-    width: 14.285%;
-    text-align: center;
-    background: red;
-    color: white;
-    margin: 0 10px;
-    max-width: 100px;
-}
-
 
 /* Styling for dates underneath chart */
 .dates {
     padding: 10px 20px 0 20px;
     display: flex;
     justify-content: space-around;
-}
-
-.chart .date {
-    width: 14.285%;
-    text-align: center;
-    margin: 0 10px;
-    max-width: 100px;
-}
-
-.date .day, .date .mon-day {
-    display: block;
-}
-
-.date .day:after {
-    content: ',';
 }
 
 .total-in-report {

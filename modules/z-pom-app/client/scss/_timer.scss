@@ -22,6 +22,9 @@
 
 .circle-container {
   margin: 10px 0;
+  .ui-effects-wrapper {
+    display: inline;
+  }
 }
 
 .circle {
@@ -35,8 +38,4 @@
 
 #deletePom {
   display: none;
-}
-
-.circle-container .ui-effects-wrapper {
-  display: inline;
 }
