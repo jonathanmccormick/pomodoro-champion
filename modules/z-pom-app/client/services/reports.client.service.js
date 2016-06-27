@@ -13,5 +13,5 @@ angular
         .error(function() {
             console.log('error');
         });
-    }
+    };
 }]);

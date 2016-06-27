@@ -91,7 +91,7 @@ module.exports = function(app) {
                     console.log(doc);
                     res.status(200).send(doc);
                 }
-            )
+            );
         });
 
 };
