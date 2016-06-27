@@ -88,7 +88,6 @@ module.exports = function(app) {
       { save: true, upsert: true, new: true },
       function(err, doc) {
         if (err) return err;
-        console.log(doc);
         res.status(200).send(doc);
       }
     );

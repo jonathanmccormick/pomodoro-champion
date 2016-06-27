@@ -17,7 +17,6 @@ module.exports = function(app) {
       workingDate.setDate(workingDate.getDate() + 1); // increment date object by one day
       dates.push(moment(workingDate).format('YYYY-MM-DD')); // create a string of our format from that date object and push that new string to the array
     }
-    console.log(dates);
 
     User.aggregate(
       [
@@ -45,7 +44,6 @@ module.exports = function(app) {
           console.log(err);
           res.status(500);
         }
-        console.log(result);
         res.json(result);
       }
     );
