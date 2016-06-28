@@ -6,18 +6,13 @@ angular
 
   var self = this;
 
-  // Interface for interacting with controllers
   self.interface = {
     currentTimer: 'pom',
     playPause: 'play',
-    displayTime: 'ERR',
+    displayTime: '00:00',
     pomsToday: 0,
     getNumber: function(n) {
       return new Array(n);
-    },
-    // fires every time a different controller is loaded
-    newController: function() {
-      // self.updateDisplay();
     },
     stopTimer: function() {
       self.interface.currentTimer = 'pom';
@@ -25,42 +20,11 @@ angular
       self.interface.playPause = 'play';
       self.timerInProgress = false;
       $('#cancelModal').modal('hide');
-    },
-    buttonClicked: function(button) {
-      if(button === 'play') {
-        self.interface.playPause = 'pause';
-        self.startTimer();
-      } else if (button === 'pause') {
-        if (self.prefs.enablePomPause) {
-          self.interface.playPause = 'play';
-          $interval.cancel(self.timerTicker);
-        } else {
-          new Audio('/media/BongoBeatDown.mp3').play();
-          console.log('The pause button is disabled. You\'ll need to enable it ;)');
-        }
-      } else if (button === 'stop') {
-        if (
-              self.interface.currentTimer === 'pom'
-              &&
-              self.prefs.confirmPomCancel === true
-              &&
-              self.secondsRemaining < self.prefs.pomLength*60
-              &&
-              self.secondsRemaining/60 <= self.prefs.pomCancelConfirmationThresholdMinutes
-            ) {
-          $('#cancelModal').modal('show');
-        } else {
-          self.interface.stopTimer();
-        }
-
-      }
     }
   };
 
   // Internal Logic
   self.resetTimer = function() {
-
-    // Check if we should start a pom or a break
     if(self.interface.currentTimer === 'break') {
       self.timerLength = self.prefs.breakLength;
     } else if (self.interface.currentTimer === 'longBreak') {
@@ -91,37 +55,29 @@ angular
         self.timerInProgress = false;
         self.notify();
         if(self.interface.currentTimer === 'pom') {
-
-          // Add a pom to the DB
           dataService.addPom();
-
-          // Get number of poms from DB and update internal counter
           self.updatePomCount();
-
-          // Check if the this break should be long or normal
           if(self.interface.pomsToday % self.prefs.pomsBeforeLongBreak === 0 ) {
-            // Start a long break
             self.startNextTimer('longBreak');
           } else {
-            // Start a normal break
             self.startNextTimer('break');
           }
-          // If the we just finished a break, decide what to do next
         } else if (self.interface.currentTimer === 'break' || self.interface.currentTimer === 'longBreak') {
-          // If the preferences are set to automatically start a new pom...
           if(self.prefs.automaticallyStartNextPom) {
-            // ...start a new pom
             self.startNextTimer('pom');
           } else {
-            // otherwise, stop the timer
             self.interface.stopTimer();
           }
         } else {
           self.resetTimer();
-          console.log('something is really really broken... :(');
         }
       }
     }, 1000);
+  };
+
+  self.pauseTimer = function() {
+    self.interface.playPause = 'play';
+    $interval.cancel(timerService.timerTicker);
   };
 
   // Update timer and data when preferences updated

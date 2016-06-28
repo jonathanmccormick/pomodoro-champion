@@ -5,12 +5,11 @@
   .module('z-pom-app')
   .controller('TimerController', TimerController);
 
-  TimerController.$inject = ['$scope', 'timerService', 'dataService'];
+  TimerController.$inject = ['$scope', 'timerService', 'dataService', '$timeout'];
 
-  function TimerController($scope, timerService, dataService) {
+  function TimerController($scope, timerService, dataService, $timeout) {
 
     $scope.interface = timerService.interface;
-    $scope.interface.newController();
 
     $scope.deletePom = function(){
       if (confirm('Are you sure you want to delete a pom?')) {
@@ -21,15 +20,35 @@
       }
     };
 
-    // Remove tooltip functionality, it doesn't really make sense
-
-    // jQuery
-    // $(function(){
-    //     // Initialize Bootstrap tooltip
-    //     $(document).ready(function(){
-    //         $('[data-toggle="tooltip"]').tooltip();
-    //     });
-    // });
+    $scope.buttonClicked = function(button) {
+      if(button === 'play') {
+        timerService.interface.playPause = 'pause';
+        timerService.startTimer();
+      } else if (button === 'pause') {
+        if (timerService.prefs.enablePomPause) {
+          timerService.pauseTimer();
+        } else {
+          $scope.pauseDisabledError = true;
+          $timeout(function () {
+            $scope.pauseDisabledError = false;
+          }, 3000);
+        }
+      } else if (button === 'stop') {
+        if (
+              timerService.interface.currentTimer === 'pom'
+              &&
+              timerService.prefs.confirmPomCancel === true
+              &&
+              timerService.secondsRemaining < timerService.prefs.pomLength*60
+              &&
+              timerService.secondsRemaining/60 <= timerService.prefs.pomCancelConfirmationThresholdMinutes
+            ) {
+          $('#cancelModal').modal('show');
+        } else {
+          timerService.interface.stopTimer();
+        }
+      }
+    }
 
   }
 })();

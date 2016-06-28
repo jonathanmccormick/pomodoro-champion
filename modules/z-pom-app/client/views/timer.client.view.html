@@ -1,3 +1,8 @@
+<div class="alert alert-warning fade in" id="pauseDisabled" ng-show="pauseDisabledError">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Uh oh!</strong> The Pause button has been disabled in your preferences. Enable it here.
+</div>
+
 <div class="timer-container">
 
     <div class="timer timer-{{ interface.currentTimer }}">{{ interface.displayTime }}</div>
@@ -8,8 +13,8 @@
     </div>
 
     <div class="timer-buttons">
-        <span class="glyphicon glyphicon-{{ interface.playPause }}" ng-click="interface.buttonClicked(interface.playPause)"></span>
-        <span class="glyphicon glyphicon-remove" ng-click="interface.buttonClicked('stop')"></span>
+        <span class="glyphicon glyphicon-{{ interface.playPause }}" ng-click="buttonClicked(interface.playPause)"></span>
+        <span class="glyphicon glyphicon-remove" ng-click="buttonClicked('stop')"></span>
     </div>
 
 </div>
