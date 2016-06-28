@@ -45,6 +45,11 @@ User.schema.add({
       type: Number,
       required: true,
       default: 5
+    },
+    enablePomPause: {
+      type: Boolean,
+      required: true,
+      default: true
     }
   }
 });

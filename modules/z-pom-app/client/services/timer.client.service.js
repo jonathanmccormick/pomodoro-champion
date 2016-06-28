@@ -31,8 +31,13 @@ angular
         self.interface.playPause = 'pause';
         self.startTimer();
       } else if (button === 'pause') {
-        self.interface.playPause = 'play';
-        $interval.cancel(self.timerTicker);
+        if (self.prefs.enablePomPause) {
+          self.interface.playPause = 'play';
+          $interval.cancel(self.timerTicker);
+        } else {
+          new Audio('/media/BongoBeatDown.mp3').play();
+          console.log('The pause button is disabled. You\'ll need to enable it ;)');
+        }
       } else if (button === 'stop') {
         if (
               self.interface.currentTimer === 'pom'

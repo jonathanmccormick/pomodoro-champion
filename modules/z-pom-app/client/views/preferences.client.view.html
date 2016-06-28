@@ -13,6 +13,7 @@
           Confirm when I cancel a pom if I have
           <input type="text" ng-model="prefServ.userPrefs.pomCancelConfirmationThresholdMinutes" ng-change="prefServ.savePrefs(key, value)">
           minute<span ng-show="prefServ.userPrefs.pomCancelConfirmationThresholdMinutes > 1">s</span> or less remaining </p>
+          <p>Enable the pause button: <input type="checkbox" ng-model="prefServ.userPrefs.enablePomPause" ng-change="prefServ.savePrefs(key, value)"></p>
     </div>
 
     <!--Post preferences array and overwrite the old one when saved (is that safe?).-->
