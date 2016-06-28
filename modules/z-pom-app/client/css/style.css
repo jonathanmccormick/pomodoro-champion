@@ -55,6 +55,9 @@ h1, h2, h3, h4, h5, h6 {
 #deletePom {
   display: none; }
 
+#cancelModal .modal-body span {
+  font-size: 30px; }
+
 .chart {
   margin-bottom: 80px; }
   .chart .date {

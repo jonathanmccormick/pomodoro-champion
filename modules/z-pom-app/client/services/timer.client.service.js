@@ -19,6 +19,13 @@ angular
     newController: function() {
       // self.updateDisplay();
     },
+    stopTimer: function() {
+      self.interface.currentTimer = 'pom';
+      self.resetTimer();
+      self.interface.playPause = 'play';
+      self.timerInProgress = false;
+      $('#cancelModal').modal('hide');
+    },
     buttonClicked: function(button) {
       if(button === 'play') {
         self.interface.playPause = 'pause';
@@ -27,7 +34,12 @@ angular
         self.interface.playPause = 'play';
         $interval.cancel(self.timerTicker);
       } else if (button === 'stop') {
-        self.stopTimer();
+        if (self.minutesRemaining <= 5 && self.interface.currentTimer === 'pom') {
+          $('#cancelModal').modal('show');
+        } else {
+          self.interface.stopTimer();
+        }
+
       }
     }
   };
@@ -89,7 +101,7 @@ angular
             self.startNextTimer('pom');
           } else {
             // otherwise, stop the timer
-            self.stopTimer();
+            self.interface.stopTimer();
           }
         } else {
           self.resetTimer();
@@ -97,13 +109,6 @@ angular
         }
       }
     }, 1000);
-  };
-
-  self.stopTimer = function() {
-    self.interface.currentTimer = 'pom';
-    self.resetTimer();
-    self.interface.playPause = 'play';
-    self.timerInProgress = false;
   };
 
   // Update timer and data when preferences updated
