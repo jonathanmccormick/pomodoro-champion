@@ -8,6 +8,7 @@
         <p>Number of poms before long break: <input type="text" ng-model="prefServ.userPrefs.pomsBeforeLongBreak" ng-change="prefServ.savePrefs(key, value)"></p>
         <p>Notify when pom ends: <input type="checkbox" ng-model="prefServ.userPrefs.notifyWhenPomEnds" ng-change="prefServ.savePrefs(key, value)"></p>
         <p>Automatically start next pom: <input type="checkbox" ng-model="prefServ.userPrefs.automaticallyStartNextPom" ng-change="prefServ.savePrefs(key, value)"></p>
+        <p><input type="checkbox" ng-model="prefServ.userPrefs.confirmPomCancel" ng-change="prefServ.savePrefs(key, value)"> Confirm when I cancel a pom when I have <input type="text" ng-model="prefServ.userPrefs.pomCancelConfirmationThresholdMinutes" ng-change="prefServ.savePrefs(key, value)"> minutes or less remaining </p>
     </div>
 
     <!--Post preferences array and overwrite the old one when saved (is that safe?).-->

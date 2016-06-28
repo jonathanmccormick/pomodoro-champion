@@ -34,7 +34,13 @@ angular
         self.interface.playPause = 'play';
         $interval.cancel(self.timerTicker);
       } else if (button === 'stop') {
-        if (self.minutesRemaining <= 5 && self.interface.currentTimer === 'pom') {
+        if (
+              self.interface.currentTimer === 'pom'
+              &&
+              self.prefs.confirmPomCancel === true
+              &&
+              self.minutesRemaining <= self.prefs.pomCancelConfirmationThresholdMinutes
+            ) {
           $('#cancelModal').modal('show');
         } else {
           self.interface.stopTimer();

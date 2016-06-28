@@ -35,6 +35,16 @@ User.schema.add({
       type: Boolean,
       required: true,
       default: true
+    },
+    confirmPomCancel: {
+      type: Boolean,
+      required: true,
+      default: true
+    },
+    pomCancelConfirmationThresholdMinutes: {
+      type: Number,
+      required: true,
+      default: 5
     }
   }
 });
