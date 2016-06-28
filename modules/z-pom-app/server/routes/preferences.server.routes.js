@@ -12,7 +12,7 @@ module.exports = function(app) {
       { $set: { preferences: req.body } },
       { upsert:true },
       function(err, data) {
-        if (err) return res.send(500, { error: err });
+        if (err) return res.status(500).send(err);
         res.sendStatus(200);
       }
     );
