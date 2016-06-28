@@ -25,21 +25,10 @@
 
     // jQuery
     // $(function(){
-    //
     //     // Initialize Bootstrap tooltip
     //     $(document).ready(function(){
     //         $('[data-toggle="tooltip"]').tooltip();
     //     });
-    //
-    //     $('.circle-container').hover(
-    //         function() {
-    //             $('#deletePom').show('slide', {duration: 200, easing: 'swing'});
-    //         },
-    //         function() {
-    //             $('#deletePom').hide('slide', {duration: 200, easing: 'swing'});
-    //         }
-    //     );
-    //
     // });
 
   }
