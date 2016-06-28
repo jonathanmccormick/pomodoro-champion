@@ -39,6 +39,8 @@ angular
               &&
               self.prefs.confirmPomCancel === true
               &&
+              self.secondsRemaining < self.prefs.pomLength*60
+              &&
               self.secondsRemaining/60 <= self.prefs.pomCancelConfirmationThresholdMinutes
             ) {
           $('#cancelModal').modal('show');
