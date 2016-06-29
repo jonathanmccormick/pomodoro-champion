@@ -30,7 +30,8 @@ module.exports = function(app) {
           '$project': {
             '_id': 0,
             'pomLogs.date': 1,
-            'pomLogs.pomsCompleted': 1
+            'pomLogs.pomsCompleted': 1,
+            'pomLogs.pomsFailed': 1
           }
         },
         {
