@@ -22,4 +22,19 @@
 
 </div>
 
+<table class="result-list">
+  <tbody>
+    <tr>
+      <th>Date</th>
+      <th>Poms Completed</th>
+      <th>Poms Failed</th>
+    </tr>
+    <tr ng-repeat="day in report">
+      <td>{{ day.pomLogs.date | date : 'EEEE, MMMM d'}}</td>
+      <td>{{ day.pomLogs.pomsCompleted }}</td>
+      <td>{{ day.pomLogs.pomsFailed }}</td>
+    </tr>
+  </tbody>
+</table>
+
 <a href="/import" class="import-pom-link">Import a pom</a>
