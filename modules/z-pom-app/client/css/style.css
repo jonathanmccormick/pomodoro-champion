@@ -100,6 +100,13 @@ h1, h2, h3, h4, h5, h6 {
 .import-pom-link {
   display: block; }
 
+.report-range {
+  display: flex;
+  display: flex;
+  flex-wrap: wrap; }
+  .report-range button {
+    margin: 10px; }
+
 .preferences-container input[type=text] {
   border: none;
   border-bottom: 1px solid transparent;
