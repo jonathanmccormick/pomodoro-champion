@@ -27,3 +27,43 @@ User.schema.add({
     }
   ]
 });
+
+User.schema.add({
+  poms: [
+    {
+      // task: {
+      //   type: ObjectID
+      // },
+      momentStarted: {
+        type: Date,
+        required: true,
+        default: Date.now()
+      },
+      momentCompleted: {
+        type: Date,
+        required: false
+      },
+      pauses: [
+        {
+          timestampPaused: {
+            type: Date,
+            required: true,
+            default: Date.now()
+          },
+          timestampResumed: {
+            type: Date,
+            required: false
+          }
+        }
+      ],
+      notes: {
+        type: String
+      },
+      duration: {
+        type: Number,
+        required: true,
+        default: null
+      }
+    }
+  ]
+});
