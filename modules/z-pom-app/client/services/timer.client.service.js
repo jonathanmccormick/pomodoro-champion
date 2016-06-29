@@ -15,6 +15,15 @@ angular
       return new Array(n);
     },
     stopTimer: function() {
+      if (
+            self.interface.currentTimer === 'pom'
+            &&
+            self.secondsRemaining > 0
+            &&
+            self.secondsRemaining < self.prefs.pomLength*60
+         ) {
+        dataService.addFailedPom();
+      }
       self.interface.currentTimer = 'pom';
       self.resetTimer();
       self.interface.playPause = 'play';

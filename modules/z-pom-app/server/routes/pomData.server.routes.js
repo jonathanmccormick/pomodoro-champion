@@ -52,6 +52,23 @@ module.exports = function(app) {
     );
   });
 
+  // Increment today's failed poms
+  app.route('/api/user/poms/failed/:date')
+  .put(function(req, res) {
+    User.update(
+      { '_id': req.user._id, 'pomLogs.date': req.params.date },
+      { $inc: { 'pomLogs.$.pomsFailed': 1 } },
+      { upsert:true },
+      function(err, data) {
+        if (err) {
+          console.log(err);
+          return res.status(500).send(err);
+        }
+        res.send(200);
+      }
+    );
+  });
+
   // Delete a pom
   app.route('/api/user/poms/:date')
   .delete(function(req, res) {

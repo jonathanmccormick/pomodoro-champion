@@ -18,6 +18,15 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
       });
   };
 
+  self.addFailedPom = function() {
+    $http.put('/api/user/poms/failed/' + self.today())
+      .success(function (status){
+      })
+      .error(function(status){
+        console.log('Total failure, try again.');
+      });
+  };
+
   self.deletePom = function() {
     return $http.delete('/api/user/poms/' + self.today())
       .success(function (response){
