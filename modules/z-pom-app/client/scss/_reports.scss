@@ -1,5 +1,5 @@
 .chart {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     .date {
         width: 14.285%;
         text-align: center;
@@ -59,7 +59,10 @@
 }
 
 // Result list
-.result-list td, .result-list th {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+.result-list {
+    margin: 50px 0;
+    td, th {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
 }
