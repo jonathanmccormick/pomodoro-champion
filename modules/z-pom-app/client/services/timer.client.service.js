@@ -23,7 +23,6 @@ angular
     }
   };
 
-  // Internal Logic
   self.resetTimer = function() {
     if(self.interface.currentTimer === 'break') {
       self.timerLength = self.prefs.breakLength;
@@ -44,8 +43,8 @@ angular
     self.interface.displayTime = `${self.minutesRemaining}:${ self.displaySeconds }`;
   };
 
-  // Timer engine
   self.startTimer = function() {
+    // Timer engine
     self.timerTicker = $interval( function(){
       if(self.secondsRemaining !== 0){
         self.timerInProgress = true;
@@ -100,7 +99,6 @@ angular
     }
   };
 
-  // Update pom count from DB
   self.updatePomCount = function() {
     dataService.getPoms()
     .then(function(poms) {
