@@ -22,7 +22,7 @@ angular
             &&
             self.secondsRemaining < self.prefs.pomLength*60
          ) {
-        dataService.addFailedPom();
+        dataService.failPom();
       }
       self.interface.currentTimer = 'pom';
       self.resetTimer();
@@ -53,6 +53,13 @@ angular
   };
 
   self.startTimer = function() {
+
+    if (self.secondsRemaining === self.prefs.pomLength*60 && self.interface.currentTimer === 'pom') {
+      dataService.startPom();
+    } else if (self.secondsRemaining < self.prefs.pomLength*60 && self.interface.currentTimer === 'pom') {
+      dataService.resumePom();
+    }
+
     // Timer engine
     self.timerTicker = $interval( function(){
       if(self.secondsRemaining !== 0){
@@ -63,7 +70,8 @@ angular
         self.timerInProgress = false;
         self.notify();
         if(self.interface.currentTimer === 'pom') {
-          dataService.addPom();
+          // dataService.addPom();
+          dataService.completePom();
           self.updatePomCount();
           if(self.interface.pomsToday % self.prefs.pomsBeforeLongBreak === 0 ) {
             self.startNextTimer('longBreak');
@@ -85,7 +93,8 @@ angular
 
   self.pauseTimer = function() {
     self.interface.playPause = 'play';
-    $interval.cancel(timerService.timerTicker);
+    $interval.cancel(self.timerTicker);
+    dataService.pausePom();
   };
 
   // Update timer and data when preferences updated
