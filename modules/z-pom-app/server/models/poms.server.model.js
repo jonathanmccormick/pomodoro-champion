@@ -60,11 +60,6 @@ User.schema.add({
       ],
       notes: {
         type: String
-      },
-      duration: {
-        type: Number,
-        required: true,
-        default: null
       }
     }
   ]
