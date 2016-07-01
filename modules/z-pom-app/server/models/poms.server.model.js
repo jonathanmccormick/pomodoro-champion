@@ -37,22 +37,24 @@ User.schema.add({
       momentStarted: {
         type: Date,
         required: true,
-        default: Date.now()
+        default: null
       },
       momentCompleted: {
         type: Date,
-        required: false
+        required: true,
+        default: null
       },
       pauses: [
         {
           timestampPaused: {
             type: Date,
             required: true,
-            default: Date.now()
+            default: null
           },
           timestampResumed: {
             type: Date,
-            required: false
+            required: true,
+            default: null
           }
         }
       ],
