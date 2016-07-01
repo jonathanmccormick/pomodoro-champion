@@ -8,15 +8,10 @@ module.exports = function(app) {
   // Start pom
   app.route('/api/user/pom/start/:moment')
   .put(function(req, res) {
-    console.log(`Pom started at ${req.params.moment}`);
-
-    // Create new pom object in this user's poms[] with momentStarted: req.params.moment
-
-    // We need a way to identify the pom that's currently running.
-    // Maybe return a handle in the form of the ObjectID of the object created, and store that in the Data Service as self.currentPom ?
-
+    // Create ObjectId for the pom object we're going to insert so we can pass it back and store it in the client so we can finish the pom later.
     var newPomId  = new mongoose.Types.ObjectId();
 
+    // Create new pom object in this user's poms[] with momentStarted: req.params.moment
     User.findOneAndUpdate(
       { '_id': req.user._id },
       { $push: { 'poms': { _id: newPomId, momentStarted: req.params.moment } } },
@@ -24,7 +19,6 @@ module.exports = function(app) {
       function(err, doc) {
         if (err) return err;
         res.send(newPomId);
-        // console.log(doc);
         return;
       });
   });
@@ -33,8 +27,6 @@ module.exports = function(app) {
   // Find pom with current ID, then set momentCompleted
   app.route('/api/user/pom/:id/complete/:moment')
   .put(function(req, res) {
-    console.log(`Pom completed at ${req.params.moment}, ${req.params.id}`);
-
     User.findOneAndUpdate(
       { '_id': req.user._id, 'poms._id': req.params.id },
       { $set: { 'poms.$.momentCompleted': req.params.moment  } },
