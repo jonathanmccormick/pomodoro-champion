@@ -46,12 +46,12 @@ User.schema.add({
       },
       pauses: [
         {
-          timestampPaused: {
+          momentPaused: {
             type: Date,
             required: true,
             default: null
           },
-          timestampResumed: {
+          momentResumed: {
             type: Date,
             required: true,
             default: null
