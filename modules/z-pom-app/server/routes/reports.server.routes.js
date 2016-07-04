@@ -18,27 +18,16 @@ module.exports = function(app) {
       dates.push(moment(workingDate).format('YYYY-MM-DD')); // create a string of our format from that date object and push that new string to the array
     }
 
-    User.aggregate(
-      [
-        {
-          '$match': {
-            '_id': req.user._id
-          }
-        },
+    User.aggregate([
+        { '$match': { '_id': req.user._id }},
         { '$unwind': '$pomLogs' },
-        {
-          '$project': {
+        { '$project': {
             '_id': 0,
             'pomLogs.date': 1,
             'pomLogs.pomsCompleted': 1,
             'pomLogs.pomsFailed': 1
-          }
-        },
-        {
-          '$match': {
-            'pomLogs.date': { $in: dates }
-          }
-        }
+        }},
+        { '$match': { 'pomLogs.date': { $in: dates }}}
       ],
       function(err,result) {
         if (err) {
