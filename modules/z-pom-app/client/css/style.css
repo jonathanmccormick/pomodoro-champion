@@ -126,4 +126,9 @@ h1, h2, h3, h4, h5, h6 {
   outline: none;
   border-bottom: 1px dotted; }
 
+.signin .alert {
+  margin: 20px 0; }
+.signin .text-danger {
+  color: #fff; }
+
 /*# sourceMappingURL=style.css.map */
