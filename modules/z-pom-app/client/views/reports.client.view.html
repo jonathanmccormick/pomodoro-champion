@@ -2,7 +2,7 @@
   <button class="btn btn-default" ng-repeat="range in reportRanges" ng-click="$parent.rangeChanged(range)">{{ range }}</button>
 </div>
 
-<h2>{{ reportRange }}<span class="total-in-report">{{ calcTotalInReport() }}</span></h2>
+<h2>{{ reportRange }}<span class="total-in-report">{{ report.length }}</span></h2>
 <div class="chart">
 
   <div class="graph">

@@ -64,16 +64,6 @@
       data.sort(compare);
     };
 
-    $scope.calcTotalInReport = function() {
-      if ($scope.report) {
-        var total = 0;
-        for (var i = 0; i < $scope.report.length; i++) {
-          total += $scope.report[i].pomLogs.pomsCompleted;
-        }
-        return total;
-      }
-    };
-
     $scope.calcBarHeight = function(numOfPoms) {
       return numOfPoms * 20 + 20;
     };
