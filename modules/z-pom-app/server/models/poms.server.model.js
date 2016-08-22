@@ -10,24 +10,20 @@ var PomSchema = new mongoose.Schema({
   // },
   momentStarted: {
     type: Date,
-    required: true,
     default: null
   },
   momentCompleted: {
     type: Date,
-    required: true,
     default: null
   },
   pauses: [
     {
       momentPaused: {
         type: Date,
-        required: true,
         default: null
       },
       momentResumed: {
         type: Date,
-        required: true,
         default: null
       }
     }
