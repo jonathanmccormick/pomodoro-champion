@@ -18,7 +18,11 @@ module.exports = function(app) {
             'poms.momentCompleted': 1
         }},
         { '$match': { 'poms.momentStarted': { '$gte': new Date(req.params.startDate)} } },
-        { '$match': { 'poms.momentCompleted': { '$lte': new Date(req.params.endDate)} } }
+        { '$match': { 'poms.momentCompleted': { '$lte': new Date(req.params.endDate)} } },
+        { '$project': {
+            'momentStarted': '$poms.momentStarted',
+            'momentCompleted': '$poms.momentCompleted'
+        }}
 
       ],
       function(err,result) {
