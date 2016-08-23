@@ -54,6 +54,8 @@ angular
 
   self.startTimer = function() {
 
+    self.interface.playPause = 'pause';
+
     if (self.secondsRemaining === self.prefs.pomLength*60 && self.interface.currentTimer === 'pom') {
       dataService.startPom();
     } else if (self.secondsRemaining < self.prefs.pomLength*60 && self.interface.currentTimer === 'pom') {

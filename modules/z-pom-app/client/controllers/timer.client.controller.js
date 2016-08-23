@@ -22,7 +22,6 @@
 
     $scope.buttonClicked = function(button) {
       if(button === 'play') {
-        timerService.interface.playPause = 'pause';
         timerService.startTimer();
       } else if (button === 'pause') {
         if (timerService.prefs.enablePomPause) {
