@@ -46,7 +46,7 @@
       // Query the DB
       ReportsService.getReport(dates[0], dates[1])
       .then(function(report) {
-        $scope.rawDataFromDB = report.data; // Store raw data for later processing as required by the different report the user wishes to generate
+        $scope.rawDataFromDB = report.data; // Store raw data for later processing as required by the different report the user wishes to generate\
 
         $scope.createPreliminaryReport(report.data);
 
@@ -59,19 +59,38 @@
       var dates = [];
 
       for (var i = 0; i < report.length; i++) {
-        var date = moment(report[i].momentCompleted).format('YYYY-MM-DD')
-        if (!findWithAttr(dates, 'date', date)) {
-          dates.push({'date': date, 'pomsCompleted': 1});
-        } else if (findWithAttr(dates, 'date', date)) {
-          for(var o = 0; o < dates.length; o += 1) {
+        if (report[i].momentCompleted != null) {
+          var date = moment(report[i].momentCompleted).format('YYYY-MM-DD')
+
+          // If there is no object in the dates array for the current date, add one and set pomsCompleted to 1
+          if (!findWithAttr(dates, 'date', date)) {
+            dates.push({
+                          'date': date,
+                          'pomsCompleted': 1,
+                          'pomsFailed': 0
+                       });
+
+          // If there is an object for this date, increment pomsCompleted
+          } else if (findWithAttr(dates, 'date', date)) {
+            for (var o = 0; o < dates.length; o += 1) {
+                if(dates[o]['date'] === date) {
+                    dates[o].pomsCompleted++;
+                }
+            }
+          }
+        }
+
+        // Calculate and assign failed poms
+        if (report[i].momentCompleted == null) {
+          for (var o = 0; o < dates.length; o += 1) {
               if(dates[o]['date'] === date) {
-                  dates[o].pomsCompleted++;
+                  dates[o].pomsFailed++;
               }
           }
         }
+
       }
       $scope.preliminaryReport = dates;
-
     };
 
     function findWithAttr(array, attr, value) {
