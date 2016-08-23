@@ -1,0 +1,26 @@
+'use strict';
+
+var mongodb = require('mongodb');
+var mongoose = require('mongoose');
+var User = mongoose.model('User');
+
+module.exports = function(app) {
+
+  app.route('/api/user/pom/start/:moment')
+  .put(function(req, res) {
+    // Create ObjectId for the pom object we're going to insert so we can pass it back and store it in the client so we can finish the pom later.
+    var newPomId  = new mongoose.Types.ObjectId();
+
+    // Create new pom object in this user's poms[] with momentStarted: req.params.moment
+    User.findOneAndUpdate(
+      { '_id': req.user._id },
+      { $push: { 'poms': { _id: newPomId, momentStarted: req.params.moment } } },
+      { upsert: true, new: true },
+      function(err, doc) {
+        if (err) return err;
+        res.send(newPomId);
+        return;
+      });
+  });
+  
+};
