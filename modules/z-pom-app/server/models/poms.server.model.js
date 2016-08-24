@@ -2,9 +2,12 @@
 
 // Module dependencies.
 var mongoose = require('mongoose');
-var User = mongoose.model('User');
 
 var PomSchema = new mongoose.Schema({
+  userID: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true
+  },
   // task: {
   //   type: ObjectID
   // },
@@ -33,6 +36,4 @@ var PomSchema = new mongoose.Schema({
   }
 });
 
-User.schema.add({
-  poms: [PomSchema]
-});
+mongoose.model('Pom', PomSchema);
