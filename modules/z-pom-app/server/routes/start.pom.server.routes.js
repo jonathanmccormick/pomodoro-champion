@@ -3,6 +3,7 @@
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Pom = mongoose.model('Pom');
 
 module.exports = function(app) {
 
@@ -12,15 +13,30 @@ module.exports = function(app) {
     var newPomId  = new mongoose.Types.ObjectId();
 
     // Create new pom object in this user's poms[] with momentStarted: req.params.moment
-    User.findOneAndUpdate(
-      { '_id': req.user._id },
-      { $push: { 'poms': { _id: newPomId, momentStarted: req.params.moment } } },
-      { upsert: true, new: true },
-      function(err, doc) {
-        if (err) return err;
-        res.send(newPomId);
-        return;
-      });
+    // User.findOneAndUpdate(
+    //   { '_id': req.user._id },
+    //   { $push: { 'poms': { _id: newPomId, momentStarted: req.params.moment } } },
+    //   { upsert: true, new: true },
+    //   function(err, doc) {
+    //     if (err) return err;
+    //     res.send(newPomId);
+    //     return;
+    //   });
+
+    var pom = new Pom({
+      _id: newPomId,
+      momentStarted: req.params.moment,
+      userID: req.user._id
+    });
+
+    pom.save(function(err, pom) {
+      if (err) {
+        return console.log(err);
+      }
+      console.log(pom);
+      res.send(newPomId);
+    });
+
   });
   
 };
