@@ -74,3 +74,4 @@ mongod
 *.njsproj
 *.sln
 style.css.map
+/.vscode
