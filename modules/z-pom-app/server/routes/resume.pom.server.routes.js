@@ -10,7 +10,7 @@ module.exports = function(app) {
   .put(function(req, res) {
 
     Pom.findOneAndUpdate(
-      { '_id': req.params.pomId, /*'userID': req.user._id*/ 'pauses._id': req.params.pauseId },
+      { '_id': req.params.pomId, 'userID': req.user._id, 'pauses._id': req.params.pauseId },
       { $set: { 'pauses.$.momentResumed': req.params.moment }},
       function(err, doc) {
         if (err) {
