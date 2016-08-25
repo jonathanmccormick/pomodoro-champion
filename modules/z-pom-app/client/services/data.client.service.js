@@ -3,6 +3,8 @@
 angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
 
   var self = this;
+  self.currentPomId;
+  self.currentPauseId;
 
   self.getPoms = function() {
     return $http.get('/api/user/poms/' + moment().format('YYYY-MM-DD'))
@@ -10,10 +12,6 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
         return response.data;
       });
   };
-
-  // New functionality
-  self.currentPomId = null;
-  self.currentPauseId = null;
 
   self.startPom = function() {
     $http.put(`/api/user/pom/start/${Date.now()}`)
