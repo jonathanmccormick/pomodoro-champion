@@ -45,27 +45,28 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
   };
 
   // New functionality
-  self.currentPomId = '5775cc485210b12206b26670';
+  self.currentPomId = null;
+  self.currentPauseId = null;
 
   self.startPom = function() {
     $http.put(`/api/user/pom/start/${Date.now()}`)
       .success(function (response){
         self.currentPomId = response;
-        console.log(`Starting pom with id ${self.currentPomId}`);
         return;
       })
       .error(function(status){
-        console.log('Total failure, try again.');
+        logFailureMessage()
       });
   };
 
   self.completePom = function() {
+    console.log(self.currentPomId);
     $http.put(`/api/user/pom/${self.currentPomId}/complete/${Date.now()}`)
       .success(function (response){
         return response;
       })
       .error(function(status){
-        console.log('Total failure, try again.');
+        logFailureMessage()
       });
   };
 
@@ -75,28 +76,32 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
         return response;
       })
       .error(function(status){
-        console.log('Total failure, try again.');
+        logFailureMessage()
       });
   };
 
   self.pausePom = function() {
-    $http.put(`/api/user/pom/pause/${Date.now()}`)
+    $http.put(`/api/user/pom/${self.currentPomId}/pause/${Date.now()}`)
       .success(function (response){
-        return response;
+        self.currentPauseId = response;
       })
       .error(function(status){
-        console.log('Total failure, try again.');
+        logFailureMessage()
       });
   };
 
   self.resumePom = function() {
-    $http.put(`/api/user/pom/resume/${Date.now()}`)
+    $http.put(`/api/user/pom/${self.currentPomId}/pause/${self.currentPauseId}/resume/${Date.now()}`)
       .success(function (response){
         return response;
       })
       .error(function(status){
-        console.log('Total failure, try again.');
+        logFailureMessage()
       });
   };
+
+  function logFailureMessage() {
+    onsole.log('Total failure, try again.');
+  }
 
 }]);
