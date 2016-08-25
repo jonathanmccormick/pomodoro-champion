@@ -2,19 +2,19 @@
   <button class="btn btn-default" ng-repeat="range in reportRanges" ng-click="$parent.rangeChanged(range)">{{ range }}</button>
 </div>
 
-<h2>{{ reportRange }}<span class="total-in-report">{{ calcTotalInReport() }}</span></h2>
+<h2>{{ reportRange }}<span class="total-in-report">{{ report.length }}</span></h2>
 <div class="chart">
 
   <div class="graph">
-    <div class="day" style="height: {{ calcBarHeight(day.pomLogs.pomsCompleted) }}px" ng-repeat="day in report">
-      <span>{{ day.pomLogs.pomsCompleted }}</span>
+    <div class="day" style="height: {{ calcBarHeight(day.pomsCompleted) }}px" ng-repeat="day in preliminaryReport">
+      <span>{{ day.pomsCompleted }}</span>
     </div>
   </div>
 
   <div class="dates">
-    <div class="date" ng-repeat="day in report">
-      <span class="day">{{ day.pomLogs.date | date : 'EEEE'}}</span>
-      <span class="mon-date">{{ day.pomLogs.date | date : 'MMMM d'}}</span>
+    <div class="date" ng-repeat="day in preliminaryReport">
+      <span class="day">{{ day.date | date : 'EEEE'}}</span>
+      <span class="mon-date">{{ day.date | date : 'MMMM d'}}</span>
     </div>
   </div>
 
@@ -27,10 +27,10 @@
       <th>Poms Completed</th>
       <th>Poms Failed</th>
     </tr>
-    <tr ng-repeat="day in report">
-      <td>{{ day.pomLogs.date | date : 'EEEE, MMMM d'}}</td>
-      <td>{{ day.pomLogs.pomsCompleted }}</td>
-      <td>{{ day.pomLogs.pomsFailed }}</td>
+    <tr ng-repeat="day in preliminaryReport">
+      <td>{{ day.date | date : 'EEEE, MMMM d'}}</td>
+      <td>{{ day.pomsCompleted }}</td>
+      <td>{{ day.pomsFailed }}</td>
     </tr>
   </tbody>
 </table>

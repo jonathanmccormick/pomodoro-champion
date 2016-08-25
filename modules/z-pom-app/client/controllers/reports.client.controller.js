@@ -15,6 +15,7 @@
       'This Month',
       'Last Month'
     ];
+    $scope.daysInRange;
 
     // Calculate query start and end dates based on selected report range
     $scope.calcDates = function(range) {
@@ -45,11 +46,61 @@
       // Query the DB
       ReportsService.getReport(dates[0], dates[1])
       .then(function(report) {
-        $scope.report = report.data; // push the result to the report variable
-        $scope.sortReport($scope.report);
+        $scope.rawDataFromDB = report.data; // Store raw data for later processing as required by the different report the user wishes to generate\
+
+        $scope.createPreliminaryReport(report.data);
+
         $scope.reportRange = range; // update the range display
       });
     };
+
+    $scope.createPreliminaryReport = function(report) {
+
+      var dates = [];
+
+      for (var i = 0; i < report.length; i++) {
+        if (report[i].momentCompleted != null) {
+          var date = moment(report[i].momentCompleted).format('YYYY-MM-DD')
+
+          // If there is no object in the dates array for the current date, add one and set pomsCompleted to 1
+          if (!findWithAttr(dates, 'date', date)) {
+            dates.push({
+                          'date': date,
+                          'pomsCompleted': 1,
+                          'pomsFailed': 0
+                       });
+
+          // If there is an object for this date, increment pomsCompleted
+          } else if (findWithAttr(dates, 'date', date)) {
+            for (var o = 0; o < dates.length; o += 1) {
+                if(dates[o]['date'] === date) {
+                    dates[o].pomsCompleted++;
+                }
+            }
+          }
+        }
+
+        // Calculate and assign failed poms
+        if (report[i].momentCompleted == null) {
+          for (var o = 0; o < dates.length; o += 1) {
+              if(dates[o]['date'] === date) {
+                  dates[o].pomsFailed++;
+              }
+          }
+        }
+
+      }
+      $scope.preliminaryReport = dates;
+    };
+
+    function findWithAttr(array, attr, value) {
+        for(var i = 0; i < array.length; i += 1) {
+            if(array[i][attr] === value) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     // Sort days in report by date
     $scope.sortReport = function(data) {
@@ -62,16 +113,6 @@
           return 0;
       }
       data.sort(compare);
-    };
-
-    $scope.calcTotalInReport = function() {
-      if ($scope.report) {
-        var total = 0;
-        for (var i = 0; i < $scope.report.length; i++) {
-          total += $scope.report[i].pomLogs.pomsCompleted;
-        }
-        return total;
-      }
     };
 
     $scope.calcBarHeight = function(numOfPoms) {
