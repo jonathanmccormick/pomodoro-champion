@@ -2,23 +2,26 @@
 
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
-var User = mongoose.model('User');
+var Pom = mongoose.model('Pom');
 
 module.exports = function(app) {
 
   app.route('/api/user/pom/:id/pause/:moment')
   .put(function(req, res) {
 
-    var newPauseId  = new mongoose.Types.ObjectId();
+    var newPauseId  = new mongoose.Types.ObjectId(); 
     console.log(newPauseId);
 
-    User.findOneAndUpdate(
-      { '_id': req.user._id, 'poms._id': req.params.id },
-      { $push: { 'poms.$.pauses': { "_id": newPauseId, "momentPaused": req.params.moment } } },
-      { save: true, new: true },
+    Pom.findOneAndUpdate(
+      { '_id': req.params.id, 'userID': req.user._id},
+      { $push: { 'pauses': { momentPaused: req.params.moment } } },
+      { upsert: true, new: true },
       function(err, doc) {
-        if (err) return err;
-        res.send(newPauseId);
+        if (err) {
+          return console.log(err);
+        }
+        console.log(doc);
+        res.sendStatus(200);
       });
 
       // console.log(`Current Pom: ${}`);
