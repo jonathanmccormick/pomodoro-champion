@@ -20,7 +20,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
         return;
       })
       .error(function(status){
-        logFailureMessage()
+        logFailureMessage();
       });
   };
 
@@ -31,7 +31,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
         return response;
       })
       .error(function(status){
-        logFailureMessage()
+        logFailureMessage();
       });
   };
 
@@ -41,7 +41,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
         return response;
       })
       .error(function(status){
-        logFailureMessage()
+        logFailureMessage();
       });
   };
 
@@ -51,7 +51,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
         self.currentPauseId = response;
       })
       .error(function(status){
-        logFailureMessage()
+        logFailureMessage();
       });
   };
 
@@ -61,12 +61,12 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
         return response;
       })
       .error(function(status){
-        logFailureMessage()
+        logFailureMessage();
       });
   };
 
   function logFailureMessage() {
-    onsole.log('Total failure, try again.');
+    console.log('Total failure, try again.');
   }
 
 }]);

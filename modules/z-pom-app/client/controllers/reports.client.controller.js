@@ -16,6 +16,8 @@
       'Last Month'
     ];
     $scope.daysInRange;
+    $scope.totalPomsCompleted = 0;
+    $scope.totalPomsFailed = 0;
 
     // Calculate query start and end dates based on selected report range
     $scope.calcDates = function(range) {
@@ -46,7 +48,7 @@
       // Query the DB
       ReportsService.getReport(dates[0], dates[1])
       .then(function(report) {
-        $scope.rawDataFromDB = report.data; // Store raw data for later processing as required by the different report the user wishes to generate\
+        $scope.rawDataFromDB = report.data; // Store raw data for later processing as required by the different report the user wishes to generate
 
         $scope.createPreliminaryReport(report.data);
 
@@ -91,6 +93,7 @@
 
       }
       $scope.preliminaryReport = dates;
+      $scope.calculateTotalPomsInReport($scope.preliminaryReport);
     };
 
     function findWithAttr(array, attr, value) {
@@ -100,6 +103,17 @@
             }
         }
         return false;
+    }
+
+    $scope.calculateTotalPomsInReport = function (array) {
+
+      $scope.totalPomsCompleted = 0;
+      $scope.totalPomsFailed = 0;
+
+      array.forEach(function(element) {
+        $scope.totalPomsCompleted += element.pomsCompleted;
+        $scope.totalPomsFailed += element.pomsFailed;
+      }, this);
     }
 
     // Sort days in report by date

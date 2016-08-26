@@ -43,6 +43,12 @@
     color: #AFAFAF;
     font-weight: 400;
     margin-left: 10px;
+    .completed {
+        font-weight: bold;
+    }
+    .failed {
+
+    }
 }
 
 .import-pom-link {
