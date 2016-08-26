@@ -2,14 +2,30 @@
 
 // Module dependencies.
 var mongoose = require('mongoose');
-var User = mongoose.model('User');
 
-// User.schema.add({
-//   tasks: [
-//     {
-//       name: String,
-//       details: String,
-//       estimatedPoms: Number
-//     }
-//   ]
-// });
+var taskSchema = new mongoose.Schema({
+    userID: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
+    },
+    title: {
+        type: String,
+        rquired: true
+    },
+    description: {
+        type: String,
+        required: false
+    },
+    timeEstimate: {
+        // Denominated in minutes
+        type: Number,
+        required: true
+    },
+    timeAcutal: {
+        // Denominated in minutes
+        type: Number,
+        required: true
+    }
+});
+
+mongoose.model('Task', taskSchema)
