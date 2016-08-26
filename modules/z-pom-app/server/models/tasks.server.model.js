@@ -19,12 +19,12 @@ var taskSchema = new mongoose.Schema({
     timeEstimate: {
         // Denominated in minutes
         type: Number,
-        required: true
+        required: false
     },
     timeAcutal: {
         // Denominated in minutes
         type: Number,
-        required: true
+        required: false
     }
 });
 

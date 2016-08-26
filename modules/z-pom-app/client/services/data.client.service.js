@@ -70,11 +70,11 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
   self.newTask = function(title) {
     $http.put(`/api/user/new/task/${title}`)
       .success(function (response){
-        return response
+        return response;
       })
-      .err(function(status){
+      .error(function(status){
         logFailureMessage();
-      })
+      });
   };
 
   function logFailureMessage() {

@@ -61,6 +61,11 @@ h1, h2, h3, h4, h5, h6 {
 #cancelModal .modal-body span {
   font-size: 30px; }
 
+.task-container .create-task .title {
+  border: none; }
+  .task-container .create-task .title:focus {
+    outline: none; }
+
 .chart {
   margin-bottom: 50px; }
   .chart .date {

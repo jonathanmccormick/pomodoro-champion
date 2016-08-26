@@ -49,5 +49,14 @@
       }
     }
 
+    // Task logic
+    $scope.tasks = [];
+
+    $scope.tasks.push({title: 'A task'});
+
+    $scope.createNewTask = function() {
+      dataService.newTask($scope.newTaskTitle);
+    };
+
   }
 })();

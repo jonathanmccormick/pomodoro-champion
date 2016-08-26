@@ -19,6 +19,7 @@ module.exports = function(app) {
         return console.log(err);
       }
       console.log(task);
+      res.sendStatus(200);
     });
 
   });
