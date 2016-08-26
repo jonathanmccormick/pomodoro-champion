@@ -44,3 +44,11 @@
 #cancelModal .modal-body span {
   font-size: 30px;
 }
+
+// Task section
+.task-container .create-task .title {
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
