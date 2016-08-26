@@ -17,9 +17,7 @@ module.exports = function(app) {
           console.log(err);
           res.status(500);
         }
-        console.log(result);
-        var pomsToday = result.length;
-        res.json(pomsToday);
+        res.json(result.length);
       }
     );
 
