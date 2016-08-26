@@ -94,7 +94,6 @@
       }
       $scope.preliminaryReport = dates;
       $scope.calculateTotalPomsInReport($scope.preliminaryReport);
-      console.log($scope.preliminaryReport);
     };
 
     function findWithAttr(array, attr, value) {
@@ -115,9 +114,6 @@
         $scope.totalPomsCompleted += element.pomsCompleted;
         $scope.totalPomsFailed += element.pomsFailed;
       }, this);
-
-      console.log(`${$scope.totalPomsCompleted} and ${$scope.totalPomsFailed}`);
-
     }
 
     // Sort days in report by date
