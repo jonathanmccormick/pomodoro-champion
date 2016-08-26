@@ -25,6 +25,11 @@ var taskSchema = new mongoose.Schema({
         // Denominated in minutes
         type: Number,
         required: false
+    },
+    completed: {
+        type: Boolean,
+        required: true,
+        default: false,
     }
 });
 
