@@ -8,9 +8,10 @@ var PomSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true
   },
-  // task: {
-  //   type: ObjectID
-  // },
+  taskID: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: false
+  },
   momentStarted: {
     type: Date,
     default: null
