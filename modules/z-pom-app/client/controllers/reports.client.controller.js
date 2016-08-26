@@ -48,7 +48,7 @@
       // Query the DB
       ReportsService.getReport(dates[0], dates[1])
       .then(function(report) {
-        $scope.rawDataFromDB = report.data; // Store raw data for later processing as required by the different report the user wishes to generate\
+        $scope.rawDataFromDB = report.data; // Store raw data for later processing as required by the different report the user wishes to generate
 
         $scope.createPreliminaryReport(report.data);
 
