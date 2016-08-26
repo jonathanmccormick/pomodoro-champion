@@ -99,6 +99,8 @@ h1, h2, h3, h4, h5, h6 {
   color: #AFAFAF;
   font-weight: 400;
   margin-left: 10px; }
+  .total-in-report .completed {
+    font-weight: bold; }
 
 .import-pom-link {
   display: block; }
