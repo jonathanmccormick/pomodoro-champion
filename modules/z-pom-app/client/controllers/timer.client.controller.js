@@ -50,12 +50,18 @@
     }
 
     // Task logic
-    $scope.tasks = [];
-
-    $scope.tasks.push({title: 'A task'});
+    dataService.getTasks()
+      .then(function(tasks) {
+        $scope.tasks = tasks.data;
+      });
 
     $scope.createNewTask = function() {
       dataService.newTask($scope.newTaskTitle);
+      dataService.getTasks()
+      .then(function(tasks) {
+        $scope.tasks = tasks.data;
+      });
+      $scope.newTaskTitle = '';
     };
 
   }

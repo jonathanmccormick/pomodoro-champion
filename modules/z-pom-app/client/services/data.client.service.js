@@ -77,6 +77,16 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
       });
   };
 
+  self.getTasks = function() {
+    return $http.get(`/api/user/tasks`)
+      .success(function(response){
+        return response;
+      })
+      .error(function(error){
+        logFailureMessage();
+      });
+  }
+
   function logFailureMessage() {
     console.log('Total failure, try again.');
   }
