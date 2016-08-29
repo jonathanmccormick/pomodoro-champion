@@ -130,11 +130,27 @@ angular
       .then(function(tasks) {
         self.interface.tasks = tasks.data;
         console.log(self.interface.tasks);
+        self.calculatePomTotals();
       });
+
+  };
+
+  self.calculatePomTotals = function() {
+
+    var timeActual = 0, timeEstimate = 0;
+
+    self.interface.tasks.forEach(function(task) {
+      timeActual += task.timeActual;
+      timeEstimate += task.timeEstimate;
+    }, this);
+
+    self.interface.timeActual = timeActual;
+    self.interface.timeEstimate = timeEstimate;
 
   };
   
   self.updatePomCount();
+
   preferencesService.getPrefs()
   .then(function(response){
     self.prefs = response.data.preferences;

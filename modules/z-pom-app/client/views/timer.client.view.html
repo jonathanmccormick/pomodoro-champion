@@ -23,15 +23,20 @@
   <div class="task" ng-repeat="task in interface.tasks" ng-class="{ 'completed': task.completed, 'selected': task._id == selectedTask._id }" ng-click="selectTask(task)">
     <input type="checkbox" class="complete" ng-model="task.completed" ng-click="completeTask(this.task)" />
     <span class="title">{{ task.title }}</span>
-    <span class="time-actual">{{ task.timeActual }}</span>
-    /
-    <input type="number" min="1" class="time-estimate" ng-model="task.timeEstimate" ng-change="updateTaskEstimate(this.task)"></input>
+    <span class="time-info">
+      <span class="time-actual">{{ task.timeActual }}</span>
+      /
+      <input type="number" min="1" class="time-estimate" ng-model="task.timeEstimate" ng-change="updateTaskEstimate(this.task)"></input>
+    </span>
   </div>
   <div class="create-task">
     <form ng-submit="createNewTask()">
       <input type="text" class="title" placeholder="Create new task..." ng-model="newTaskTitle">
     </form>
   </div>
+
+  <span class="pom-totals">{{ interface.timeActual }} / {{ interface.timeEstimate }}</span>
+
 </div>
 
 <!-- Modal -->

@@ -61,32 +61,39 @@ h1, h2, h3, h4, h5, h6 {
 #cancelModal .modal-body span {
   font-size: 30px; }
 
-.task-container .task {
-  border: #eaeaea solid;
-  border-width: 0 0 1px 0;
-  padding: 10px; }
-  .task-container .task .complete {
-    margin-right: 15px; }
-  .task-container .task .title {
-    font-weight: bold;
-    margin-right: 15px; }
-  .task-container .task .time-estimate {
-    border: 0;
-    width: 2em;
-    background: transparent; }
-    .task-container .task .time-estimate:focus {
-      outline: none; }
-.task-container .completed {
-  color: #eaeaea; }
-.task-container .selected {
-  background-color: #eeeeee; }
-.task-container .create-task {
-  padding: 10px; }
-  .task-container .create-task .title {
-    border: none;
-    width: 100%; }
-    .task-container .create-task .title:focus {
-      outline: none; }
+.task-container {
+  max-width: 700px;
+  margin: auto; }
+  .task-container .task {
+    border: #eaeaea solid;
+    border-width: 0 0 1px 0;
+    padding: 10px; }
+    .task-container .task .complete {
+      margin-right: 15px; }
+    .task-container .task .title {
+      font-weight: bold;
+      margin-right: 15px; }
+    .task-container .task .time-estimate {
+      border: 0;
+      width: 2em;
+      background: transparent; }
+      .task-container .task .time-estimate:focus {
+        outline: none; }
+    .task-container .task .time-info {
+      float: right; }
+  .task-container .completed {
+    color: #eaeaea; }
+  .task-container .selected {
+    background-color: #eeeeee; }
+  .task-container .create-task {
+    padding: 10px; }
+    .task-container .create-task .title {
+      border: none;
+      width: 100%; }
+      .task-container .create-task .title:focus {
+        outline: none; }
+  .task-container .pom-totals {
+    float: right; }
 
 .chart {
   margin-bottom: 50px; }

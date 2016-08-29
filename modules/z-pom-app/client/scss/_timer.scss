@@ -48,6 +48,9 @@
 // Task section
 .task-container {
 
+  max-width: 700px;
+  margin: auto;
+
   .task {
 
     border: #eaeaea solid;
@@ -70,6 +73,10 @@
       &:focus {
         outline: none;
       }
+    }
+
+    .time-info {
+      float: right;
     }
 
   }
@@ -95,5 +102,9 @@
     }
 
   }
+
+  .pom-totals {
+      float: right;
+    }
 
 } 
