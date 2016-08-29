@@ -22,7 +22,11 @@
 
     $scope.buttonClicked = function(button) {
       if(button === 'play') {
-        timerService.startTimer($scope.selectedTask._id);
+        if ($scope.selectedTask) {
+          timerService.startTimer($scope.selectedTask._id);
+        } else {
+          alert('Please select a task to work on');
+        }
       } else if (button === 'pause') {
         if (timerService.prefs.enablePomPause) {
           timerService.pauseTimer();
