@@ -61,6 +61,7 @@
 
     $scope.updateTaskEstimate = function(task) {
       dataService.updateTaskEstimate(task._id, parseInt(task.timeEstimate));
+      timerService.updatePomCount();
     };
 
     $scope.selectTask = function(task) {
