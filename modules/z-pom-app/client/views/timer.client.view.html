@@ -23,7 +23,6 @@
   <div class="task" ng-repeat="task in tasks" ng-class="{ 'completed': task.completed }">
     <input type="checkbox" class="complete" ng-model="task.completed" ng-click="completeTask(this.task)" />
     <span class="title">{{ task.title }}</span>
-    <span class="description">{{ task.description }}</span>
     <span class="time-acutal">{{ task.timeActual }}</span>
     <span class="time-estimate">{{ task.timeEstimate }}</span>
   </div>
