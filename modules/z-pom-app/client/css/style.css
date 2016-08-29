@@ -65,11 +65,13 @@ h1, h2, h3, h4, h5, h6 {
   border: #eaeaea solid;
   border-width: 0 0 1px 0;
   padding: 10px 0; }
-  .task-container .task .completed {
+  .task-container .task .complete {
     margin-right: 15px; }
   .task-container .task .title {
     font-weight: bold;
     margin-right: 15px; }
+.task-container .completed {
+  color: #eaeaea; }
 .task-container .create-task .title {
   border: none; }
   .task-container .create-task .title:focus {

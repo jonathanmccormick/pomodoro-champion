@@ -54,7 +54,7 @@
     border-width: 0 0 1px 0;
     padding: 10px 0;
 
-    .completed {
+    .complete {
       margin-right: 15px;
     }
 
@@ -64,6 +64,10 @@
     }
 
   }
+
+  .completed {
+      color: #eaeaea;
+    }
 
   .create-task .title {
     border: none;
