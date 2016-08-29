@@ -49,19 +49,9 @@
       }
     }
 
-    // Task logic
-    dataService.getTasks()
-      .then(function(tasks) {
-        $scope.tasks = tasks.data;
-        console.log($scope.tasks);
-      });
-
     $scope.createNewTask = function() {
       dataService.newTask($scope.newTaskTitle);
-      dataService.getTasks()
-      .then(function(tasks) {
-        $scope.tasks = tasks.data;
-      });
+      timerService.updatePomCount();
       $scope.newTaskTitle = '';
     };
 

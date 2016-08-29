@@ -120,11 +120,20 @@ angular
   };
 
   self.updatePomCount = function() {
+    
     dataService.getPoms()
-    .then(function(poms) {
-      self.interface.pomsToday = poms;
-    });
+      .then(function(poms) {
+        self.interface.pomsToday = poms;
+      });
+
+    dataService.getTasks()
+      .then(function(tasks) {
+        self.interface.tasks = tasks.data;
+        console.log(self.interface.tasks);
+      });
+
   };
+  
   self.updatePomCount();
   preferencesService.getPrefs()
   .then(function(response){

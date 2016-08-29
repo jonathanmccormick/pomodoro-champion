@@ -20,7 +20,7 @@
 </div>
 
 <div class="task-container">
-  <div class="task" ng-repeat="task in tasks" ng-class="{ 'completed': task.completed, 'selected': task._id == selectedTask._id }" ng-click="selectTask(task)">
+  <div class="task" ng-repeat="task in interface.tasks" ng-class="{ 'completed': task.completed, 'selected': task._id == selectedTask._id }" ng-click="selectTask(task)">
     <input type="checkbox" class="complete" ng-model="task.completed" ng-click="completeTask(this.task)" />
     <span class="title">{{ task.title }}</span>
     <span class="time-actual">{{ task.timeActual }}</span>
