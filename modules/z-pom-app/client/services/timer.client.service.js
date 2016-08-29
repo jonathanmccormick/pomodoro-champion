@@ -52,12 +52,12 @@ angular
     self.interface.displayTime = `${self.minutesRemaining}:${ self.displaySeconds }`;
   };
 
-  self.startTimer = function() {
+  self.startTimer = function(selectedTask) {
 
     self.interface.playPause = 'pause';
 
     if (self.secondsRemaining === self.prefs.pomLength*60 && self.interface.currentTimer === 'pom') {
-      dataService.startPom();
+      dataService.startPom(selectedTask);
     } else if (self.secondsRemaining < self.prefs.pomLength*60 && self.interface.currentTimer === 'pom') {
       dataService.resumePom();
     }

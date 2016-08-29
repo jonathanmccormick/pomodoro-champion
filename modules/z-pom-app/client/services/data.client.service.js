@@ -13,8 +13,8 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
       });
   };
 
-  self.startPom = function() {
-    $http.put(`/api/user/pom/start/${Date.now()}`)
+  self.startPom = function(selectedTask) {
+    $http.put(`/api/user/pom/start/${Date.now()}/task/${selectedTask}`)
       .success(function (response){
         self.currentPomId = response;
         return;
