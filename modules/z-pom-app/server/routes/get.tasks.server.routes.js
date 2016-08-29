@@ -18,7 +18,6 @@ module.exports = function(app) {
           console.log(err);
           res.status(500);
         }
-        console.log(result);
         res.json(result);
       }
     );

@@ -65,7 +65,6 @@
     };
 
     $scope.completeTask = function(task) {
-      console.log(task);
       dataService.setTaskCompleted(task._id, task.completed);
     };
 
