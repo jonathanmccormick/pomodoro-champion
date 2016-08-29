@@ -40,6 +40,16 @@ h1, h2, h3, h4, h5, h6 {
     color: green; }
   .timer-container .timer-buttons {
     margin: 10px 0; }
+  .timer-container .playPause {
+    position: relative;
+    top: 50%;
+    transform: translateY(-100%);
+    margin-left: 20px; }
+  .timer-container .cancel {
+    position: relative;
+    top: 50%;
+    transform: translateY(-100%);
+    margin-right: 20px; }
 
 /* Circles for counting poms */
 .circle-container {

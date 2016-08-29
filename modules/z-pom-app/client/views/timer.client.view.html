@@ -4,19 +4,9 @@
 </div>
 
 <div class="timer-container">
-
-    <div class="timer timer-{{ interface.currentTimer }}">{{ interface.displayTime }}</div>
-
-    <div class="circle-container">
-        <span class="circle" ng-repeat="i in interface.getNumber(interface.pomsToday) track by $index"></span>
-        <span class="glyphicon glyphicon-remove" id="deletePom" ng-click="deletePom()" data-toggle="tooltip" data-placement="right" title="Delete a Pom"></span>
-    </div>
-
-    <div class="timer-buttons">
-        <span class="glyphicon glyphicon-{{ interface.playPause }}" ng-click="buttonClicked(interface.playPause)"></span>
-        <span class="glyphicon glyphicon-remove" ng-click="buttonClicked('stop')"></span>
-    </div>
-
+  <span class="glyphicon glyphicon-remove cancel" ng-click="buttonClicked('stop')"></span>
+  <span class="timer timer-{{ interface.currentTimer }}">{{ interface.displayTime }}</span>
+  <span class="glyphicon glyphicon-{{ interface.playPause }} playPause" ng-click="buttonClicked(interface.playPause)"></span>
 </div>
 
 <div class="task-container">
