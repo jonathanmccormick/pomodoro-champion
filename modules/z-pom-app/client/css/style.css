@@ -80,10 +80,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #eaeaea; }
 .task-container .selected {
   background-color: #eeeeee; }
-.task-container .create-task .title {
-  border: none; }
-  .task-container .create-task .title:focus {
-    outline: none; }
+.task-container .create-task {
+  padding: 10px; }
+  .task-container .create-task .title {
+    border: none;
+    width: 100%; }
+    .task-container .create-task .title:focus {
+      outline: none; }
 
 .chart {
   margin-bottom: 50px; }

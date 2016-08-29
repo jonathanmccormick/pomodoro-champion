@@ -82,11 +82,18 @@
     background-color: #eeeeee;
   }
 
-  .create-task .title {
-    border: none;
-    &:focus {
-      outline: none;
+  .create-task {
+
+    padding: 10px;
+
+    .title {
+      border: none;
+      width: 100%;
+      &:focus {
+        outline: none;
+      }
     }
+
   }
 
 } 
