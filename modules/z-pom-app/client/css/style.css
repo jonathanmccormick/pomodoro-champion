@@ -64,7 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 .task-container .task {
   border: #eaeaea solid;
   border-width: 0 0 1px 0;
-  padding: 10px 0; }
+  padding: 10px; }
   .task-container .task .complete {
     margin-right: 15px; }
   .task-container .task .title {
@@ -72,11 +72,14 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 15px; }
   .task-container .task .time-estimate {
     border: 0;
-    width: 2em; }
+    width: 2em;
+    background: transparent; }
     .task-container .task .time-estimate:focus {
       outline: none; }
 .task-container .completed {
   color: #eaeaea; }
+.task-container .selected {
+  background-color: #eeeeee; }
 .task-container .create-task .title {
   border: none; }
   .task-container .create-task .title:focus {

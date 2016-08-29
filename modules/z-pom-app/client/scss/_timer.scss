@@ -52,7 +52,7 @@
 
     border: #eaeaea solid;
     border-width: 0 0 1px 0;
-    padding: 10px 0;
+    padding: 10px;
 
     .complete {
       margin-right: 15px;
@@ -66,6 +66,7 @@
     .time-estimate {
       border: 0;
       width: 2em;
+      background: transparent;
       &:focus {
         outline: none;
       }
@@ -75,7 +76,11 @@
 
   .completed {
       color: #eaeaea;
-    }
+   }
+
+  .selected {
+    background-color: #eeeeee;
+  }
 
   .create-task .title {
     border: none;

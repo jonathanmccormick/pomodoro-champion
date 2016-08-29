@@ -73,5 +73,9 @@
       dataService.updateTaskEstimate(task._id, parseInt(task.timeEstimate));
     };
 
+    $scope.selectTask = function(task) {
+      $scope.selectedTask = task;
+    };
+
   }
 })();
