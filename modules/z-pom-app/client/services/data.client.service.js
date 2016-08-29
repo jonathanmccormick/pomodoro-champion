@@ -86,8 +86,8 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
       });
   }
 
-  self.completeTask = function(taskId) {
-    $http.put(`/api/task/${taskId}/complete`)
+  self.setTaskCompleted = function(taskId, isCompleted) {
+    $http.put(`/api/task/${taskId}/completed/${isCompleted}`)
       .success(function(response){
 
       })
