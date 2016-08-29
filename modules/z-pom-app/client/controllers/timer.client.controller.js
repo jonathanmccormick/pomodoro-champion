@@ -64,5 +64,10 @@
       $scope.newTaskTitle = '';
     };
 
+    $scope.completeTask = function(task) {
+      console.log(task);
+      dataService.completeTask(task._id);
+    };
+
   }
 })();

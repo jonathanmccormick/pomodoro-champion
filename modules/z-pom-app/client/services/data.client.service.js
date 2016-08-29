@@ -66,7 +66,6 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
   };
 
   // Tasks
-
   self.newTask = function(title) {
     $http.put(`/api/user/new/task/${title}`)
       .success(function (response){
@@ -86,6 +85,16 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
         logFailureMessage();
       });
   }
+
+  self.completeTask = function(taskId) {
+    $http.put(`/api/task/${taskId}/complete`)
+      .success(function(response){
+
+      })
+      .error(function(err){
+        console.log(err);
+      });
+  };
 
   function logFailureMessage() {
     console.log('Total failure, try again.');
