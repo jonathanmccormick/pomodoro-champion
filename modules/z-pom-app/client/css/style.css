@@ -82,9 +82,9 @@ h1, h2, h3, h4, h5, h6 {
     .task-container .task .time-info {
       float: right; }
   .task-container .completed {
-    color: #eaeaea; }
+    color: #c5c5c5; }
   .task-container .selected {
-    background-color: #eeeeee; }
+    background-color: #f9f9f9; }
   .task-container .create-task {
     padding: 10px; }
     .task-container .create-task .title {
