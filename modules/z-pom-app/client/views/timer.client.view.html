@@ -21,7 +21,11 @@
 
 <div class="task-container">
   <div class="task" ng-repeat="task in tasks">
-    <div class="title">{{ task.title }}</div>
+    <input type="checkbox" class="completed" ng-model="task.completed" ng-click="completeTask(this.task)" />
+    <span class="title">{{ task.title }}</span>
+    <span class="description">{{ task.description }}</span>
+    <span class="time-acutal">{{ task.timeActual }}</span>
+    <span class="time-estimate">{{ task.timeEstimate }}</span>
   </div>
   <div class="create-task">
     <form ng-submit="createNewTask()">

@@ -46,9 +46,30 @@
 }
 
 // Task section
-.task-container .create-task .title {
-  border: none;
-  &:focus {
-    outline: none;
+.task-container {
+
+  .task {
+
+    border: #eaeaea solid;
+    border-width: 0 0 1px 0;
+    padding: 10px 0;
+
+    .completed {
+      margin-right: 15px;
+    }
+
+    .title {
+      font-weight: bold;
+      margin-right: 15px
+    }
+
   }
-}
+
+  .create-task .title {
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+
+} 

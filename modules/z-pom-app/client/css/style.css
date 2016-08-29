@@ -61,6 +61,15 @@ h1, h2, h3, h4, h5, h6 {
 #cancelModal .modal-body span {
   font-size: 30px; }
 
+.task-container .task {
+  border: #eaeaea solid;
+  border-width: 0 0 1px 0;
+  padding: 10px 0; }
+  .task-container .task .completed {
+    margin-right: 15px; }
+  .task-container .task .title {
+    font-weight: bold;
+    margin-right: 15px; }
 .task-container .create-task .title {
   border: none; }
   .task-container .create-task .title:focus {
