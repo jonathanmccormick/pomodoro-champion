@@ -10,7 +10,8 @@ module.exports = function(app) {
   .get(function(req, res) {
 
     Task.aggregate([
-        { '$match': { 'userID': req.user._id }}
+        { '$match': { 'userID': req.user._id }},
+        { '$match': { 'completed': false } }
       ],
       function(err,result) {
         if (err) {
