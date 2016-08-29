@@ -96,6 +96,16 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
       });
   };
 
+  self.updateTaskEstimate = function(taskId, estimate) {
+    $http.put(`/api/task/${taskId}/update/estimate/${estimate}`)
+      .success(function(response){
+
+      })
+      .error(function(err){
+        console.log(err);
+      });
+  }
+
   function logFailureMessage() {
     console.log('Total failure, try again.');
   }

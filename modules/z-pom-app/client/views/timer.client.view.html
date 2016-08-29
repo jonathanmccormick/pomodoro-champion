@@ -24,7 +24,8 @@
     <input type="checkbox" class="complete" ng-model="task.completed" ng-click="completeTask(this.task)" />
     <span class="title">{{ task.title }}</span>
     <span class="time-actual">{{ task.timeActual }}</span>
-    <span class="time-estimate">{{ task.timeEstimate }}</span>
+    /
+    <input type="number" min="1" class="time-estimate" ng-model="task.timeEstimate" ng-change="updateTaskEstimate(this.task)"></input>
   </div>
   <div class="create-task">
     <form ng-submit="createNewTask()">

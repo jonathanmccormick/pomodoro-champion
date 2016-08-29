@@ -70,6 +70,11 @@ h1, h2, h3, h4, h5, h6 {
   .task-container .task .title {
     font-weight: bold;
     margin-right: 15px; }
+  .task-container .task .time-estimate {
+    border: 0;
+    width: 2em; }
+    .task-container .task .time-estimate:focus {
+      outline: none; }
 .task-container .completed {
   color: #eaeaea; }
 .task-container .create-task .title {

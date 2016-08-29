@@ -53,6 +53,7 @@
     dataService.getTasks()
       .then(function(tasks) {
         $scope.tasks = tasks.data;
+        console.log($scope.tasks);
       });
 
     $scope.createNewTask = function() {
@@ -66,6 +67,10 @@
 
     $scope.completeTask = function(task) {
       dataService.setTaskCompleted(task._id, task.completed);
+    };
+
+    $scope.updateTaskEstimate = function(task) {
+      dataService.updateTaskEstimate(task._id, parseInt(task.timeEstimate));
     };
 
   }

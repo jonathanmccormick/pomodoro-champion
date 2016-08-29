@@ -63,6 +63,14 @@
       margin-right: 15px
     }
 
+    .time-estimate {
+      border: 0;
+      width: 2em;
+      &:focus {
+        outline: none;
+      }
+    }
+
   }
 
   .completed {
