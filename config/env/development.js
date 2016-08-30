@@ -5,7 +5,7 @@ var defaultEnvConfig = require('./default');
 module.exports = {
   db: {
     // uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/meanjs-dev',
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://ec2-54-199-245-156.ap-northeast-1.compute.amazonaws.com:27017/mean',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://ec2-54-199-245-156.ap-northeast-1.compute.amazonaws.com:27017/admin',
     options: {
       user: 'root',
       pass: 'k2yNY5Teiewm'
