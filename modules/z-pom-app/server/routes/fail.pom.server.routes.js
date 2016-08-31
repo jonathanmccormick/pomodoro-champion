@@ -8,7 +8,7 @@ module.exports = function(app) {
 
   app.route('/api/user/pom/fail/:moment')
   .put(function(req, res) {
-    console.log(`Pom failed at ${req.params.moment}`);
+    console.log('Pom failed at ' + req.params.moment);
     res.status(200);
 
     // User.findOneAndUpdate(

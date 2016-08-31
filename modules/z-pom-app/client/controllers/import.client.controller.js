@@ -9,7 +9,7 @@
 
   function ImportController($scope, $http, $timeout) {
     $scope.import = function(date, numberOfPoms) {
-      $http.put(`/api/user/poms/new/${date}/${numberOfPoms}/`)
+      $http.put('/api/user/poms/new/' + date + '/' + numberOfPoms)
       .success(function(response) {
         $scope.displaySuccessMessage();
       })

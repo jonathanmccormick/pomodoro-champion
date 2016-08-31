@@ -12,7 +12,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
   };
 
   self.startPom = function(selectedTask) {
-    $http.put(`/api/user/pom/start/${Date.now()}/task/${selectedTask}`)
+    $http.put('/api/user/pom/start/' + Date.now() + '/task/' + selectedTask)
       .success(function (response){
         self.currentPomId = response;
         return;
@@ -24,7 +24,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
 
   self.completePom = function() {
     console.log(self.currentPomId);
-    $http.put(`/api/user/pom/${self.currentPomId}/complete/${Date.now()}`)
+    $http.put('/api/user/pom/' + self.currentPomId + '/complete/' + Date.now())
       .success(function (response){
         return response;
       })
@@ -34,7 +34,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
   };
 
   self.failPom = function() {
-    $http.put(`/api/user/pom/fail/${Date.now()}`)
+    $http.put('/api/user/pom/fail/' + Date.now())
       .success(function (response){
         return response;
       })
@@ -44,7 +44,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
   };
 
   self.pausePom = function() {
-    $http.put(`/api/user/pom/${self.currentPomId}/pause/${Date.now()}`)
+    $http.put('/api/user/pom/' + self.currentPomId + '/pause/' + Date.now())
       .success(function (response){
         self.currentPauseId = response;
       })
@@ -54,7 +54,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
   };
 
   self.resumePom = function() {
-    $http.put(`/api/user/pom/${self.currentPomId}/pause/${self.currentPauseId}/resume/${Date.now()}`)
+    $http.put('/api/user/pom/' + self.currentPomId + '/pause/' + self.currentPauseId + '/resume/' + Date.now())
       .success(function (response){
         return response;
       })
@@ -65,7 +65,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
 
   // Tasks
   self.newTask = function(title) {
-    $http.put(`/api/user/new/task/${title}`)
+    $http.put('/api/user/new/task/' + title)
       .success(function (response){
         return response;
       })
@@ -75,7 +75,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
   };
 
   self.getTasks = function() {
-    return $http.get(`/api/user/tasks`)
+    return $http.get('/api/user/tasks')
       .success(function(response){
         return response;
       })
@@ -85,7 +85,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
   };
 
   self.setTaskCompleted = function(taskId, isCompleted) {
-    $http.put(`/api/task/${taskId}/completed/${isCompleted}`)
+    $http.put('/api/task/' + taskId + '/completed/' + isCompleted)
       .success(function(response){
 
       })
@@ -95,7 +95,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
   };
 
   self.updateTaskEstimate = function(taskId, estimate) {
-    $http.put(`/api/task/${taskId}/update/estimate/${estimate}`)
+    $http.put('/api/task/' + taskId + '/update/estimate/' + estimate)
       .success(function(response){
 
       })

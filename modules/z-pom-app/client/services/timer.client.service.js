@@ -47,7 +47,7 @@ angular
   self.updateDisplay = function() {
     self.minutesRemaining = Math.floor(self.secondsRemaining / 60);
     self.displaySeconds = ('0' + self.secondsRemaining % 60).toString().slice(-2);
-    self.interface.displayTime = `${self.minutesRemaining}:${ self.displaySeconds }`;
+    self.interface.displayTime = self.minutesRemaining + ':' + self.displaySeconds;
   };
 
   self.startTimer = function(selectedTask) {
@@ -61,7 +61,7 @@ angular
     }
 
     // Timer engine
-    self.timerTicker = $interval( function(){
+    self.timerTicker = $interval(function(){
       if(self.secondsRemaining !== 0){
         self.timerInProgress = true;
         self.secondsRemaining --;
@@ -73,7 +73,7 @@ angular
           // dataService.addPom();
           dataService.completePom();
           self.updatePomCount();
-          if(self.interface.pomsToday % self.prefs.pomsBeforeLongBreak === 0 ) {
+          if(self.interface.pomsToday % self.prefs.pomsBeforeLongBreak === 0) {
             self.startNextTimer('longBreak');
           } else {
             self.startNextTimer('break');
