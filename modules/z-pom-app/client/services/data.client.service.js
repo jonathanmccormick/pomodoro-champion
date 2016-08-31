@@ -3,8 +3,6 @@
 angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
 
   var self = this;
-  self.currentPomId;
-  self.currentPauseId;
 
   self.getPoms = function() {
     return $http.get('/api/user/poms/' + moment().format('YYYY-MM-DD'))
@@ -84,7 +82,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
       .error(function(error){
         logFailureMessage();
       });
-  }
+  };
 
   self.setTaskCompleted = function(taskId, isCompleted) {
     $http.put(`/api/task/${taskId}/completed/${isCompleted}`)
@@ -104,7 +102,7 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
       .error(function(err){
         console.log(err);
       });
-  }
+  };
 
   function logFailureMessage() {
     console.log('Total failure, try again.');

@@ -38,20 +38,17 @@
         }
       } else if (button === 'stop') {
         if (
-              timerService.interface.currentTimer === 'pom'
-              &&
-              timerService.prefs.confirmPomCancel === true
-              &&
-              timerService.secondsRemaining < timerService.prefs.pomLength*60
-              &&
-              timerService.secondsRemaining/60 <= timerService.prefs.pomCancelConfirmationThresholdMinutes
+              timerService.interface.currentTimer === 'pom' &&
+              timerService.prefs.confirmPomCancel === true &&
+              timerService.secondsRemaining < (timerService.prefs.pomLength * 60) &&
+              (timerService.secondsRemaining / 60) <= timerService.prefs.pomCancelConfirmationThresholdMinutes
             ) {
           $('#cancelModal').modal('show');
         } else {
           timerService.interface.stopTimer();
         }
       }
-    }
+    };
 
     $scope.createNewTask = function() {
       dataService.newTask($scope.newTaskTitle);

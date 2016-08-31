@@ -16,10 +16,8 @@ angular
     },
     stopTimer: function() {
       if (
-            self.interface.currentTimer === 'pom'
-            &&
-            self.secondsRemaining > 0
-            &&
+            self.interface.currentTimer === 'pom' &&
+            self.secondsRemaining > 0 &&
             self.secondsRemaining < self.prefs.pomLength*60
          ) {
         dataService.failPom();

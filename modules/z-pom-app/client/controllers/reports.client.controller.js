@@ -15,7 +15,6 @@
       'This Month',
       'Last Month'
     ];
-    $scope.daysInRange;
     $scope.totalPomsCompleted = 0;
     $scope.totalPomsFailed = 0;
 
@@ -61,9 +60,8 @@
       var dates = [];
 
       for (var i = 0; i < report.length; i++) {
-        if (report[i].momentCompleted != null) {
-          var date = moment(report[i].momentCompleted).format('YYYY-MM-DD')
-
+        var date = moment(report[i].momentCompleted).format('YYYY-MM-DD');
+        if (report[i].momentCompleted !== null) {
           // If there is no object in the dates array for the current date, add one and set pomsCompleted to 1
           if (!findWithAttr(dates, 'date', date)) {
             dates.push({
@@ -75,7 +73,7 @@
           // If there is an object for this date, increment pomsCompleted
           } else if (findWithAttr(dates, 'date', date)) {
             for (var o = 0; o < dates.length; o += 1) {
-                if(dates[o]['date'] === date) {
+                if(dates[o].date === date) {
                     dates[o].pomsCompleted++;
                 }
             }
@@ -83,10 +81,10 @@
         }
 
         // Calculate and assign failed poms
-        if (report[i].momentCompleted == null) {
-          for (var o = 0; o < dates.length; o += 1) {
-              if(dates[o]['date'] === date) {
-                  dates[o].pomsFailed++;
+        if (report[i].momentCompleted === null) {
+          for (var x = 0; x < dates.length; x += 1) {
+              if(dates[x].date === date) {
+                  dates[x].pomsFailed++;
               }
           }
         }
@@ -114,7 +112,7 @@
         $scope.totalPomsCompleted += element.pomsCompleted;
         $scope.totalPomsFailed += element.pomsFailed;
       }, this);
-    }
+    };
 
     // Sort days in report by date
     $scope.sortReport = function(data) {
