@@ -57,11 +57,14 @@
 
     $scope.createPreliminaryReport = function(report) {
 
+      console.log(report);
+
       var dates = [];
 
       for (var i = 0; i < report.length; i++) {
-        var date = moment(report[i].momentCompleted).format('YYYY-MM-DD');
+        var date;
         if (report[i].momentCompleted !== null) {
+          date = moment(report[i].momentCompleted).format('YYYY-MM-DD');
           // If there is no object in the dates array for the current date, add one and set pomsCompleted to 1
           if (!findWithAttr(dates, 'date', date)) {
             dates.push({
@@ -90,6 +93,8 @@
         }
 
       }
+
+      console.log(dates);
       $scope.preliminaryReport = dates;
       $scope.calculateTotalPomsInReport($scope.preliminaryReport);
     };
