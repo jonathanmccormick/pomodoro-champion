@@ -9,9 +9,9 @@ module.exports = function(app) {
   .get(function(req, res) {
 
     Pom.aggregate([
-        { '$match': { 'userID': req.user._id }},
-        { '$match': { 'momentCompleted': { '$gte': new Date(req.params.date)} } }
-      ],
+      { '$match': { 'userID': req.user._id } },
+      { '$match': { 'momentCompleted': { '$gte': new Date(req.params.date) } } }
+    ],
       function(err,result) {
         if (err) {
           console.log(err);

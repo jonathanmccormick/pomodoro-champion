@@ -10,7 +10,7 @@ module.exports = function(app) {
   app.route('/api/user/pom/start/:moment/task/:selectedTask')
   .put(function(req, res) {
     // Create ObjectId for the pom object we're going to insert so we can pass it back and store it in the client so we can finish the pom later.
-    var newPomId  = new mongoose.Types.ObjectId();
+    var newPomId = new mongoose.Types.ObjectId();
     
     var pom = new Pom({
       _id: newPomId,

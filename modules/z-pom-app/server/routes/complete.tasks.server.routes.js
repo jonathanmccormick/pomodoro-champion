@@ -13,11 +13,11 @@ module.exports = function(app) {
         { 'userID': req.user._id, '_id' : req.params.taskId },
         { 'completed': req.params.isCompleted },
         function(err, result) {
-            if  (err) {
-                console.log(err);
-                return res.sendStatus(500);
-            }
-            res.sendStatus(200);
+          if (err) {
+            console.log(err);
+            return res.sendStatus(500);
+          }
+          res.sendStatus(200);
         }
     );
 

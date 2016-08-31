@@ -16,7 +16,7 @@ module.exports = function(app) {
     
     Pom.findOneAndUpdate(
       { '_id': req.params.id, 'userID': req.user._id },
-      { $set: { 'momentCompleted': req.params.moment  } },
+      { $set: { 'momentCompleted': req.params.moment } },
       { save: true, new: true },
       function(err, doc) {
         if (err) return err;

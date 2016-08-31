@@ -11,7 +11,7 @@ module.exports = function(app) {
 
     Pom.findOneAndUpdate(
       { '_id': req.params.pomId, 'userID': req.user._id, 'pauses._id': req.params.pauseId },
-      { $set: { 'pauses.$.momentResumed': req.params.moment }},
+      { $set: { 'pauses.$.momentResumed': req.params.moment } },
       function(err, doc) {
         if (err) {
           res.sendStatus(500);

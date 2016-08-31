@@ -9,10 +9,10 @@ module.exports = function(app) {
   app.route('/api/user/pom/:id/pause/:moment')
   .put(function(req, res) {
 
-    var newPauseId  = new mongoose.Types.ObjectId();
+    var newPauseId = new mongoose.Types.ObjectId();
 
     Pom.findOneAndUpdate(
-      { '_id': req.params.id, 'userID': req.user._id},
+      { '_id': req.params.id, 'userID': req.user._id },
       { $push: { 'pauses': { momentPaused: req.params.moment, _id: newPauseId } } },
       { upsert: true, new: true },
       function(err, doc) {

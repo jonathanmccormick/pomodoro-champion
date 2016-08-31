@@ -9,14 +9,14 @@ module.exports = function(app) {
   .get(function(req, res) {
 
     Pom.aggregate([
-        { '$match': { 'userID': req.user._id }},
-        { '$match': { 'momentStarted': { '$gte': new Date(req.params.startDate)} } },
+        { '$match': { 'userID': req.user._id } },
+        { '$match': { 'momentStarted': { '$gte': new Date(req.params.startDate) } } },
         { '$match': { '$or': [
-          { 'momentCompleted': { '$lte': new Date(req.params.endDate)} } ,
+          { 'momentCompleted': { '$lte': new Date(req.params.endDate) } } ,
           { 'momentCompleted': null } 
         ] } }
 
-      ],
+    ],
       function(err,result) {
         if (err) {
           console.log(err);

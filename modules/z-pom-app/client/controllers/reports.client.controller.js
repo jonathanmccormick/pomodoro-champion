@@ -65,17 +65,17 @@
           // If there is no object in the dates array for the current date, add one and set pomsCompleted to 1
           if (!findWithAttr(dates, 'date', date)) {
             dates.push({
-                          'date': date,
-                          'pomsCompleted': 1,
-                          'pomsFailed': 0
-                       });
+              'date': date,
+              'pomsCompleted': 1,
+              'pomsFailed': 0
+            });
 
           // If there is an object for this date, increment pomsCompleted
           } else if (findWithAttr(dates, 'date', date)) {
             for (var o = 0; o < dates.length; o += 1) {
-                if(dates[o].date === date) {
-                    dates[o].pomsCompleted++;
-                }
+              if(dates[o].date === date) {
+                dates[o].pomsCompleted++;
+              }
             }
           }
         }
@@ -83,9 +83,9 @@
         // Calculate and assign failed poms
         if (report[i].momentCompleted === null) {
           for (var x = 0; x < dates.length; x += 1) {
-              if(dates[x].date === date) {
-                  dates[x].pomsFailed++;
-              }
+            if(dates[x].date === date) {
+              dates[x].pomsFailed++;
+            }
           }
         }
 
@@ -95,12 +95,12 @@
     };
 
     function findWithAttr(array, attr, value) {
-        for(var i = 0; i < array.length; i += 1) {
-            if(array[i][attr] === value) {
-                return true;
-            }
+      for(var i = 0; i < array.length; i += 1) {
+        if(array[i][attr] === value) {
+          return true;
         }
-        return false;
+      }
+      return false;
     }
 
     $scope.calculateTotalPomsInReport = function (array) {
