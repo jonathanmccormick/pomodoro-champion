@@ -2,13 +2,13 @@
 
 module.exports = {
   secure: {
-    ssl: true,
+    ssl: false,
     privateKey: './config/sslcerts/key.pem',
     certificate: './config/sslcerts/cert.pem'
   },
   port: process.env.PORT || 8443,
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + ('54.238.154.99:27017' || 'localhost') + '/admin',
     options: {
       user: 'root',
       pass: 'k2yNY5Teiewm'
@@ -35,6 +35,7 @@ module.exports = {
       }
     }
   },
+  sessionSecret: process.env.SESSION_SECRET || 'fliaserqaow;eifn24395q3497q;owiea;dfhasldfh;qerifht;er',
   facebook: {
     clientID: process.env.FACEBOOK_ID || 'APP_ID',
     clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
