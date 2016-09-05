@@ -67,7 +67,6 @@
 
     $scope.selectTask = function(task) {
       $scope.selectedTask = task;
-      console.log($scope.selectedTask._id);
     };
 
   }

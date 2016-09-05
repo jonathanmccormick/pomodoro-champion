@@ -57,8 +57,6 @@
 
     $scope.createPreliminaryReport = function(report) {
 
-      console.log(report);
-
       var dates = [];
 
       for (var i = 0; i < report.length; i++) {
@@ -94,7 +92,6 @@
 
       }
 
-      console.log(dates);
       $scope.preliminaryReport = dates;
       $scope.calculateTotalPomsInReport($scope.preliminaryReport);
     };

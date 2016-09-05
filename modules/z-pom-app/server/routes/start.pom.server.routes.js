@@ -23,7 +23,6 @@ module.exports = function(app) {
       if (err) {
         return console.log(err);
       }
-      console.log(pom);
       res.send(newPomId);
     });
 

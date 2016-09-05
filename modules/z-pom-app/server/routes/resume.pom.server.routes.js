@@ -17,7 +17,6 @@ module.exports = function(app) {
           res.sendStatus(500);
           return console.log(err);
         }
-        console.log(doc);
         res.sendStatus(200);
       });
       

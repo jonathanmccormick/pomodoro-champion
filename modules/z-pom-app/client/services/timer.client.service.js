@@ -127,7 +127,6 @@ angular
     dataService.getTasks()
       .then(function(tasks) {
         self.interface.tasks = tasks.data;
-        console.log(self.interface.tasks);
         self.calculatePomTotals();
       });
 

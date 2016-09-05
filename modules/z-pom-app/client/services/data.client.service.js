@@ -23,7 +23,6 @@ angular.module('z-pom-app').service('dataService', [ '$http', function($http) {
   };
 
   self.completePom = function() {
-    console.log(self.currentPomId);
     $http.put('/api/user/pom/' + self.currentPomId + '/complete/' + Date.now())
       .success(function (response){
         return response;

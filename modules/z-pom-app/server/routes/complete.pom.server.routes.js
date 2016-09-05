@@ -28,11 +28,8 @@ module.exports = function(app) {
         { $inc: { 'timeActual': 1 } },
         function(err, doc) {
           if (err) return res.sendStatus(err);
-          console.log(doc);
-          // res.sendStatus(200);
         });
 
-        console.log(doc);
         res.sendStatus(200);
       });
 
