@@ -4,9 +4,9 @@ module.exports = {
   client: {
     lib: {
       css: [
-        'public/lib/bootstrap/dist/css/bootstrap.css',
+        'public/lib/bootstrap/dist/css/bootstrap.css'
         // 'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-        'public/themes/CosmoTheme.min.css'
+        // 'public/themes/CosmoTheme.min.css'
 
       ],
       js: [
