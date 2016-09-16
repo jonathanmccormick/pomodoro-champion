@@ -38,7 +38,6 @@
     display: inline;
   }
 }
-
 .circle {
   background-color: red;
   width: 10px;
@@ -47,37 +46,28 @@
   display: inline-block;
   margin-right: 4px;
 }
-
 #deletePom {
   display: none;
 }
-
 // Cancel Timer modal
 #cancelModal .modal-body span {
   font-size: 30px;
 }
-
 // Task section
 .task-container {
-
   max-width: 700px;
   margin: auto;
-
   .task {
-
     border: #eaeaea solid;
     border-width: 0 0 1px 0;
     padding: 10px;
-
     .complete {
       margin-right: 15px;
     }
-
     .title {
       font-weight: bold;
       margin-right: 15px
     }
-
     .time-estimate {
       border: 0;
       width: 2em;
@@ -86,25 +76,19 @@
         outline: none;
       }
     }
-
     .time-info {
       float: right;
     }
-
   }
-
   .completed {
       color: #c5c5c5;
    }
-
   .selected {
     background-color: #f9f9f9;
   }
 
   .create-task {
-
     padding: 10px;
-
     .title {
       border: none;
       width: 100%;
@@ -112,11 +96,10 @@
         outline: none;
       }
     }
-
   }
 
   .pom-totals {
-      float: right;
+    float: right;
+    margin-right: 28px;
     }
-
 } 
